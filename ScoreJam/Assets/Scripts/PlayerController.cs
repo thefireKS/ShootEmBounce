@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Lets gooo");
             canJump = false;
         }
-        rb.velocity += new Vector3(cmr.movement.x * moveSpeed, 0f, cmr.movement.z * moveSpeed);
+        //rb.velocity += new Vector3(cmr.movement.x * moveSpeed, 0f, cmr.movement.z * moveSpeed);
     }
 
     private void OnCollisionEnter(Collision collision)
