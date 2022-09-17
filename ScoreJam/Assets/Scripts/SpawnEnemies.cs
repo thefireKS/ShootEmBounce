@@ -18,9 +18,8 @@ public class SpawnEnemies : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             GameObject enemy = Instantiate(enemies[i], transform.position + Random.insideUnitSphere * radius, Quaternion.identity);
-
-            if (enemy.GetComponent<Enemy>().GetId() == 0)
-                enemy.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-25, 25), Random.Range(-25, 25), Random.Range(-25, 25));
+            
+            enemy.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-25, 25), Random.Range(-25, 25), Random.Range(-25, 25));
 
             if (i == enemies.Length - 1)
                 i = 0;

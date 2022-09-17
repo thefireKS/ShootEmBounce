@@ -17,12 +17,21 @@ public class CameraRotating : MonoBehaviour
 
     private void Update()
     {
-        rotY += Input.GetAxis("Mouse X");
-        rotX += Input.GetAxis("Mouse Y");
+        if (Time.timeScale != 0f)
+        {
+            rotY += Input.GetAxis("Mouse X");
+            rotX += Input.GetAxis("Mouse Y");
 
-        transform.rotation = Quaternion.Euler(-rotX * sensitivity, rotY * sensitivity, 0);
+            transform.rotation = Quaternion.Euler(-rotX * sensitivity, rotY * sensitivity, 0);
         
-        movement = transform.forward;
-        movement = new Vector3(movement.x, 0f, movement.z);
+            movement = transform.forward;
+            movement = new Vector3(movement.x, 0f, movement.z);
+
+            if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButton(0))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
     }
 }

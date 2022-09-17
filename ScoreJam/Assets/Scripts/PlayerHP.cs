@@ -8,10 +8,11 @@ public class PlayerHP : MonoBehaviour
     public int currentHP;
     
     [SerializeField] private float invincibleTime;
-    private bool _isInvincible = false;
+    private bool _isInvincible;
 
     private void Awake() {
         currentHP = maxHP;
+        Time.timeScale = 1f;
     }
 
     void OnCollisionEnter(Collision other)
@@ -27,7 +28,6 @@ public class PlayerHP : MonoBehaviour
             currentHP--;
             if(currentHP == 0)
             {
-                Debug.Log("I am DEAD!");
                 Time.timeScale = 0f;
             }
         }

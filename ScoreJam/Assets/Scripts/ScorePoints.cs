@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class ScorePoints : MonoBehaviour
 {
     static ScorePoints instance;
     public int score { get; private set; }
-    [SerializeField] private TextMeshProUGUI scoreText;
+    private TextMeshProUGUI scoreText;
     
     [SerializeField] private int comboCount = 5;
     private int curComboCount = 0;
@@ -16,24 +17,29 @@ public class ScorePoints : MonoBehaviour
 
     private void Start()
     {
+        scoreText = GetComponent<TextMeshProUGUI>();
         instance = this;
         score = 0;
+        instance.scoreText.text = "Score: " + instance.score;
     }
 
     static public void UpdateScore()
     {
-        if (!instance.comboInProgress)
+        if (instance != null)
         {
-            instance.StartCoroutine(instance.ComboTimer());
-            instance.score++;
+            if (!instance.comboInProgress )
+            {
+                instance.StartCoroutine(instance.ComboTimer());
+                instance.score+=100;
+            }
+            else
+            {
+                instance.StopCoroutine(instance.ComboTimer());
+                instance.StartCoroutine(instance.ComboTimer());
+                instance.score += instance.curComboCount * 100;
+            }
+            instance.scoreText.text = "Score: " + instance.score;
         }
-        else
-        {
-            instance.StopCoroutine(instance.ComboTimer());
-            instance.StartCoroutine(instance.ComboTimer());
-            instance.score += instance.curComboCount;
-        }
-        instance.scoreText.text = instance.score.ToString();
     }
 
     private IEnumerator ComboTimer()
