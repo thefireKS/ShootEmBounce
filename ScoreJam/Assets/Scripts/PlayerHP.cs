@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerHP : MonoBehaviour
 {
-    [SerializeField] private int maxHP;
-    [SerializeField] private float invincibleTime;
+    public int maxHP;
     public int currentHP;
+    
+    [SerializeField] private float invincibleTime;
     private bool _isInvincible = false;
 
     private void Awake() {
@@ -26,7 +27,7 @@ public class PlayerHP : MonoBehaviour
             currentHP--;
             if(currentHP == 0)
             {
-                UnityEngine.Debug.Log("I am DEAD!");
+                Debug.Log("I am DEAD!");
                 Time.timeScale = 0f;
             }
         }
