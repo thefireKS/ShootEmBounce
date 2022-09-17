@@ -4,15 +4,16 @@ using UnityEngine;
 using LootLocker.Requests;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class GenericTypeLeaderboard : MonoBehaviour
 {
-    public InputField scoreInputField;
-    public InputField playerNameInputField;
-    public Text infoText;
-    public Text playerIDText;
-    public Text leaderboardTop10Text;
-    public Text leaderboardCenteredText;
+    public TMP_InputField scoreInputField;
+    public TMP_InputField playerNameInputField;
+    public TextMeshProUGUI infoText;
+    public TextMeshProUGUI playerIDText;
+    public TextMeshProUGUI leaderboardTop10Text;
+    public TextMeshProUGUI leaderboardCenteredText;
 
     /*
     * leaderboardKey or leaderboardID can be used.
@@ -43,7 +44,7 @@ public class GenericTypeLeaderboard : MonoBehaviour
         {
             if (response.success)
             {
-                infoText.text = "Guest session started";
+                //infoText.text = "Gu   est session started";
                 playerIDText.text = "Player ID:" + response.player_id.ToString();
                 memberID = response.player_id.ToString();
                 UpdateLeaderboardTop10();
