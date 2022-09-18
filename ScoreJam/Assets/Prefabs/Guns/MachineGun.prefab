@@ -142,7 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64398a6e84dc7404db3dc942012c283d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tochka: {fileID: 724357002689142863}
+  gunDots:
+  - {fileID: 724357002689142863}
   ammo: {fileID: 8879064850499544466, guid: 0bf4f012c1ba43c41be74552e6c4e278, type: 3}
   fireForce: 10
   delay: 0.05
