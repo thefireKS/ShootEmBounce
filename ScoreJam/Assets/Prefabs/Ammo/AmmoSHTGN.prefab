@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 4933352497009260098}
   - component: {fileID: 9021751790020529013}
   - component: {fileID: 6170027268249226252}
-  - component: {fileID: 2904329026122008453}
   - component: {fileID: 6498887933745936564}
-  - component: {fileID: 8732735177117614498}
+  - component: {fileID: -6807007234730882499}
   - component: {fileID: 8264109302094129558}
-  - component: {fileID: 9160316857693251030}
+  - component: {fileID: -722884515414143779}
   m_Layer: 0
-  m_Name: Grenade
+  m_Name: AmmoSHTGN
   m_TagString: Ammo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8879064850499544466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6206, y: 0.062, z: -0.3343}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -66,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc581979a03b2c64584f7654967b5f8b, type: 2}
+  - {fileID: 2100000, guid: 13e537a6086f117488e9d5f1d8265432, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,21 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2904329026122008453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8879064850499544466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4643683ecf9051c44ae47fd9ddf6cb26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blowDelay: 1
-  blowSound: {fileID: 9160316857693251030}
-  boomVFX: {fileID: 8551538313085619131, guid: 2a33b3a2b85981b41aec642a6edde33b, type: 3}
 --- !u!135 &6498887933745936564
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -116,19 +100,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &8732735177117614498
-SphereCollider:
+--- !u!114 &-6807007234730882499
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8879064850499544466}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 100
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34cd843f1eb80ff44bad3ecea4c48d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCollision: 3
 --- !u!54 &8264109302094129558
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,9 +127,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 2
---- !u!82 &9160316857693251030
+--- !u!82 &-722884515414143779
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,9 +139,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eadfbf48429087541a18a69a8458a102, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 3271319efd148354c91b94d578c8c48a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

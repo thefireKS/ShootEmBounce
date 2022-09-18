@@ -8,8 +8,8 @@ public class ScorePoints : MonoBehaviour
 {
     static ScorePoints instance;
     public int score { get; private set; }
-    private TextMeshProUGUI scoreText;
-
+    
+    [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI scoreMultiplierText;
     [SerializeField] private int comboCount = 5;
     [SerializeField] private Color[] scoreColors;
@@ -20,7 +20,6 @@ public class ScorePoints : MonoBehaviour
 
     private void Start()
     {
-        scoreText = GetComponent<TextMeshProUGUI>();
         instance = this;
         score = 0;
         instance.scoreText.text = "Score: " + instance.score;
@@ -41,7 +40,7 @@ public class ScorePoints : MonoBehaviour
             }
             instance.comboTimer = 0f;
             instance.score += 100 * instance.curComboCount;
-            instance.scoreText.text = instance.score.ToString();
+            instance.scoreText.text = "Score: " + instance.score;
         }
     }
 
@@ -56,7 +55,6 @@ public class ScorePoints : MonoBehaviour
             if (comboTimer >= comboTime)
                 EndOfCombo();
         }
-
     }
 
     private void ComboUpdater()

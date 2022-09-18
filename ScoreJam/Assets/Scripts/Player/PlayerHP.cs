@@ -13,6 +13,7 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] private GameObject activeGameUI;
     [SerializeField] private Texture2D cursorTex;
     
+    private Vector2 hotSpot = new Vector2(17, 17);
     private void Awake()
     {
         currentHP = maxHP;
@@ -47,6 +48,6 @@ public class PlayerHP : MonoBehaviour
         activeGameUI.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Cursor.SetCursor(cursorTex, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(cursorTex, hotSpot, CursorMode.Auto);
     }
 }
