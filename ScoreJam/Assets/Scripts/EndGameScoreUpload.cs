@@ -10,13 +10,17 @@ public class EndGameScoreUpload : MonoBehaviour
     [SerializeField] 
     private TMP_InputField playerNameInputField;
 
+    [SerializeField] 
+    private TextMeshProUGUI totalScore;
+
+    [SerializeField]
     private ScorePoints scp;
 
     private string leaderboardKey = "highscoreBoard";
 
     private void Start()
     {
-        scp = GameObject.FindWithTag("Score").GetComponent<ScorePoints>();
+        totalScore.text = "Your score is:" + scp.score;
     }
 
     public void UploadScore()
