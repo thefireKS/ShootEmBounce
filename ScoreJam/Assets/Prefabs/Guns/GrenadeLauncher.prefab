@@ -115,7 +115,7 @@ MonoBehaviour:
   - {fileID: 6005349308114083844}
   ammo: {fileID: 8879064850499544466, guid: b3ca13308cfdce4468da25a4b0e58605, type: 3}
   fireForce: 5
-  delay: 1
+  delay: 6
 --- !u!1 &6005349308114083844
 GameObject:
   m_ObjectHideFlags: 0
