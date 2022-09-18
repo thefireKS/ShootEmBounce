@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,18 +8,32 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject ammo;
     [SerializeField] private float fireForce;
     [SerializeField] private float delay;
+    private float currentTime = 0f;
     private bool _allowFire = true;
     void Update()
     {
         if(Input.GetKey(KeyCode.Mouse0) && _allowFire)
         {
-            StartCoroutine(Fire());
+            Shooting();
+            _allowFire = false;
         }
     }
 
-    private IEnumerator Fire()
+    private void FixedUpdate()
     {
-        _allowFire = false;
+        if (_allowFire == false)
+        {
+            currentTime += Time.fixedDeltaTime;
+            if (currentTime > delay)
+            {
+                _allowFire = true;
+                currentTime = 0f;
+            }
+        }
+    }
+
+    private void Shooting()
+    {
         foreach (var gunDot in gunDots)
         {
             Vector3 spawnPoint = gunDot.transform.position;
@@ -27,7 +42,5 @@ public class Gun : MonoBehaviour
             Rigidbody firedAmmoRb = firedAmmo.GetComponent<Rigidbody>();
             firedAmmoRb.AddForce(firedAmmo.transform.forward * fireForce, ForceMode.Impulse);
         }
-        yield return new WaitForSeconds(delay);
-        _allowFire = true;
     }
 }

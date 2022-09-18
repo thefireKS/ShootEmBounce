@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     private Texture2D cursorTex;
     [SerializeField] 
     private GameObject menu;
+
+    private Vector2 hotSpot = new Vector2(17, 17);
     
     // Update is called once per frame
     void Update()
@@ -17,7 +19,7 @@ public class PauseMenu : MonoBehaviour
             menu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Cursor.SetCursor(cursorTex, Vector2.zero, CursorMode.Auto);
+            Cursor.SetCursor(cursorTex, hotSpot, CursorMode.Auto);
             Time.timeScale = 0f;
         }
     }
