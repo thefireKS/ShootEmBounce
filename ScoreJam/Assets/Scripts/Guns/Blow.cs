@@ -5,14 +5,13 @@ using UnityEngine;
 public class Blow : MonoBehaviour
 {
     [SerializeField] private float blowDelay;
+    [SerializeField] private AudioSource boomSound;
 
-    private SphereCollider blowCollider;
-
-    public static List<GameObject> GOinTrigger = new List<GameObject>();
+    private static List<GameObject> GOinTrigger = new List<GameObject>();
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy") GOinTrigger.Add(other.gameObject);
+        if(other.CompareTag("Enemy")) GOinTrigger.Add(other.gameObject);
     }
 
     void OnTriggerExit(Collider other)
@@ -27,22 +26,15 @@ public class Blow : MonoBehaviour
 
     private IEnumerator BOM()
     {
-        SphereCollider[] spheres = GetComponents<SphereCollider>();
-        for(int i = 0; i < spheres.Length; i++)
-        {
-            if(spheres[i].isTrigger == true)
-            {
-                blowCollider = spheres[i];
-            }
-        }
         yield return new WaitForSeconds(blowDelay);
-        for (int i = 0; i < GOinTrigger.Count; i++)
+        foreach (var t in GOinTrigger)
         {
-            if(GOinTrigger[i])
+            if(t)
             {
-                Destroy(GOinTrigger[i]);
+                Destroy(t);
             }
         }
-        Destroy(gameObject);
+        boomSound.Play();
+        if(!boomSound.isPlaying)Destroy(gameObject);
     }
 }
