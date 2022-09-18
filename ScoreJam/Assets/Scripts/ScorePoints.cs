@@ -14,7 +14,8 @@ public class ScorePoints : MonoBehaviour
     [SerializeField] private int comboCount = 5;
     [SerializeField] private Color[] scoreColors;
     private int curComboCount = 0;
-    private float comboTime = 10f;
+    [SerializeField] private float comboTime = 3f;
+    private float comboTimer = 0f;
     private bool comboInProgress = false;
 
     private void Start()
@@ -31,22 +32,31 @@ public class ScorePoints : MonoBehaviour
         {
             if (!instance.comboInProgress )
             {
-                instance.StartCoroutine(instance.ComboTimer());
-                instance.score+=100;
+                instance.curComboCount++;
+                instance.comboInProgress = true;
             }
-            else
+            else if (instance.curComboCount < instance.comboCount)
             {
-                instance.StopCoroutine(instance.ComboTimer());
-                instance.StartCoroutine(instance.ComboTimer());
-                instance.score += instance.curComboCount * 100;
+                instance.curComboCount++;
             }
-            instance.scoreText.text = "Score: " + instance.score;
+            instance.comboTimer = 0f;
+            instance.score += 100 * instance.curComboCount;
+            instance.scoreText.text = instance.score.ToString();
         }
     }
 
     private void Update()
     {
         ComboUpdater();
+        
+        if (comboInProgress)
+        {
+            comboTimer += Time.deltaTime;
+
+            if (comboTimer >= comboTime)
+                EndOfCombo();
+        }
+
     }
 
     private void ComboUpdater()
@@ -63,13 +73,10 @@ public class ScorePoints : MonoBehaviour
         }
     }
 
-    private IEnumerator ComboTimer()
+    private void EndOfCombo()
     {
-        if (curComboCount < comboCount)
-            curComboCount++;
-        comboInProgress = true;
-        yield return new WaitForSeconds(comboTime);
         comboInProgress = false;
         curComboCount = 0;
+        comboTimer = 0f;
     }
 }
