@@ -32,6 +32,11 @@ public class CameraRotating : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
+
+            if (Input.GetMouseButton(1))
+                Camera.main.fieldOfView = 60;
+            else
+                Camera.main.fieldOfView = 75;
         }
     }
 }

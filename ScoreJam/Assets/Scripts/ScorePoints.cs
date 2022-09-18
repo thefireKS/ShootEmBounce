@@ -9,8 +9,10 @@ public class ScorePoints : MonoBehaviour
     static ScorePoints instance;
     public int score { get; private set; }
     private TextMeshProUGUI scoreText;
-    
+
+    [SerializeField] private TextMeshProUGUI scoreMultiplierText;
     [SerializeField] private int comboCount = 5;
+    [SerializeField] private Color[] scoreColors;
     private int curComboCount = 0;
     private float comboTime = 10f;
     private bool comboInProgress = false;
@@ -39,6 +41,25 @@ public class ScorePoints : MonoBehaviour
                 instance.score += instance.curComboCount * 100;
             }
             instance.scoreText.text = "Score: " + instance.score;
+        }
+    }
+
+    private void Update()
+    {
+        ComboUpdater();
+    }
+
+    private void ComboUpdater()
+    {
+        if (instance.curComboCount == 0)
+        {
+            instance.scoreMultiplierText.text = "x" + 1;
+            instance.scoreMultiplierText.color = instance.scoreColors[0];
+        }
+        else
+        {
+            instance.scoreMultiplierText.text = "x" + instance.curComboCount;
+            instance.scoreMultiplierText.color = instance.scoreColors[instance.curComboCount-1];
         }
     }
 
