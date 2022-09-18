@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4643683ecf9051c44ae47fd9ddf6cb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blowDelay: 2
+  blowDelay: 3
   blowSound: {fileID: 9160316857693251030}
+  boomVFX: {fileID: 8551538313085619131, guid: 2a33b3a2b85981b41aec642a6edde33b, type: 3}
 --- !u!135 &6498887933745936564
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -142,7 +143,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!82 &9160316857693251030
 AudioSource:
@@ -155,7 +156,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: eadfbf48429087541a18a69a8458a102, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

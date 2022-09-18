@@ -6,6 +6,7 @@ public class Blow : MonoBehaviour
 {
     [SerializeField] private float blowDelay;
     [SerializeField] private AudioSource blowSound;
+    [SerializeField] private GameObject boomVFX;
     private static List<GameObject> GOinTrigger = new List<GameObject>();
 
     void OnTriggerEnter(Collider other)
@@ -34,7 +35,8 @@ public class Blow : MonoBehaviour
             }
         }
         blowSound.Play();
-        yield return new WaitForSeconds(2f);
+        Instantiate(boomVFX, transform.position, Quaternion.Euler(0,0,0));
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }
