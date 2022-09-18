@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraRotating : MonoBehaviour
 {
-    [SerializeField] private GameObject bullet;
     [SerializeField] private float sensitivity;
     private float rotX, rotY;
     public Vector3 movement;

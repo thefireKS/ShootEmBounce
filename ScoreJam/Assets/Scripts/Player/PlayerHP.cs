@@ -6,32 +6,47 @@ public class PlayerHP : MonoBehaviour
 {
     public int maxHP;
     public int currentHP;
-    
-    [SerializeField] private float invincibleTime;
     private bool _isInvincible;
 
-    private void Awake() {
+    [SerializeField] private float invincibleTime;
+    [SerializeField] private GameObject endGameUI;
+    [SerializeField] private GameObject activeGameUI;
+    [SerializeField] private Texture2D cursorTex;
+    
+    private void Awake()
+    {
         currentHP = maxHP;
         Time.timeScale = 1f;
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Enemy") StartCoroutine(Damage());
+        if (other.gameObject.tag == "Enemy") StartCoroutine(Damage());
     }
 
     private IEnumerator Damage()
     {
-        if(!_isInvincible)
+        if (!_isInvincible)
         {
             _isInvincible = true;
             currentHP--;
-            if(currentHP == 0)
+            if (currentHP == 0)
             {
-                Time.timeScale = 0f;
+                Death();
             }
         }
+
         yield return new WaitForSeconds(invincibleTime);
         _isInvincible = false;
+    }
+
+    private void Death()
+    {
+        Time.timeScale = 0f;
+        endGameUI.SetActive(true);
+        activeGameUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Cursor.SetCursor(cursorTex, Vector2.zero, CursorMode.Auto);
     }
 }
