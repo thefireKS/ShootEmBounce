@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350314542280894981}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00002, y: 0.00812, z: 0.00095}
+  m_LocalPosition: {x: 0.00002, y: 0.008196, z: 0.00095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,5 +133,5 @@ MonoBehaviour:
   gunDots:
   - {fileID: 350314542280894981}
   ammo: {fileID: 8879064850499544466, guid: 73f383759b9d12d4ebefe8e2211ce4a4, type: 3}
-  fireForce: 25
+  fireForce: 30
   delay: 0.15
