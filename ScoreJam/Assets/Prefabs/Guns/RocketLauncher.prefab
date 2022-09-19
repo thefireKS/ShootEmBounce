@@ -102,8 +102,8 @@ MonoBehaviour:
   gunDots:
   - {fileID: 1530161998895319592}
   ammo: {fileID: 8879064850499544466, guid: b3ca13308cfdce4468da25a4b0e58605, type: 3}
-  fireForce: 20
-  delay: 6
+  fireForce: 100
+  delay: 2
 --- !u!1 &1530161998895319592
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class PlayerHP : MonoBehaviour
     public int maxHP;
     public int currentHP;
     private bool _isInvincible;
+    private float timeForRegen = 0f;
     [SerializeField] private AudioSource ouf;
 
     [SerializeField] private float invincibleTime;
@@ -21,6 +22,16 @@ public class PlayerHP : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    private void FixedUpdate()
+    {
+        timeForRegen += Time.fixedDeltaTime;
+        if (currentHP < maxHP && timeForRegen >= 20f)
+        {
+            currentHP++;
+            timeForRegen = 0;
+        }
+    }
+
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Enemy") StartCoroutine(Damage());
@@ -30,6 +41,7 @@ public class PlayerHP : MonoBehaviour
     {
         if (!_isInvincible)
         {
+            timeForRegen = 0;
             _isInvincible = true;
             currentHP--;
             ouf.Play();

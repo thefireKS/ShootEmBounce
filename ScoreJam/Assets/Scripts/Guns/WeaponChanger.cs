@@ -18,7 +18,7 @@ public class WeaponChanger : MonoBehaviour
                 _weaponInOrder = 0;
             }
             weapons[_weaponInOrder].gameObject.SetActive(true);
-            nextScoreGoal += 500 * goalMultiplier++;
+            nextScoreGoal += 500 + (500 * goalMultiplier++);
         }
     }
 }
