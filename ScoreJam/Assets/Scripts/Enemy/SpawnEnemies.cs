@@ -19,7 +19,7 @@ public class SpawnEnemies : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             GameObject enemy = Instantiate(enemies[i], transform.position + Random.insideUnitSphere * radius, Quaternion.identity);
-            enemy.GetComponent<Renderer>().material = enemiesMaterial[Random.Range(0,enemiesMaterial.Length)];
+            enemy.GetComponent<Renderer>().material = enemiesMaterial[Random.Range(0,enemiesMaterial.Length-1)];
             enemy.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-25, 25), Random.Range(-25, 25), Random.Range(-25, 25));
 
             if (i == enemies.Length - 1)
