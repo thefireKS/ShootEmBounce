@@ -19,9 +19,13 @@ public class EnemyHP : MonoBehaviour
             currentHP--;
             if(currentHP == 0)
             {
-                ScorePoints.UpdateScore();
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        ScorePoints.UpdateScore();
     }
 }
