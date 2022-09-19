@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
+    [SerializeField] private Material[] enemiesMaterial;
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private float radius = 3f;
     [SerializeField] private float delay = 5f;
@@ -18,7 +19,7 @@ public class SpawnEnemies : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             GameObject enemy = Instantiate(enemies[i], transform.position + Random.insideUnitSphere * radius, Quaternion.identity);
-            
+            enemy.GetComponent<Renderer>().material = enemiesMaterial[Random.Range(0,enemiesMaterial.Length)];
             enemy.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-25, 25), Random.Range(-25, 25), Random.Range(-25, 25));
 
             if (i == enemies.Length - 1)
