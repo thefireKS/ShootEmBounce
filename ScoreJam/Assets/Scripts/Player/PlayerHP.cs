@@ -7,6 +7,7 @@ public class PlayerHP : MonoBehaviour
     public int maxHP;
     public int currentHP;
     private bool _isInvincible;
+    [SerializeField] private AudioSource ouf;
 
     [SerializeField] private float invincibleTime;
     [SerializeField] private GameObject endGameUI;
@@ -31,6 +32,7 @@ public class PlayerHP : MonoBehaviour
         {
             _isInvincible = true;
             currentHP--;
+            ouf.Play();
             if (currentHP == 0)
             {
                 Death();
