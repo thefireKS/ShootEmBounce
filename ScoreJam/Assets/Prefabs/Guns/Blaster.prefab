@@ -132,5 +132,5 @@ MonoBehaviour:
   gunDots:
   - {fileID: 3400410942392279778}
   ammo: {fileID: 8879064850499544466, guid: 4e08d3ec44a44fc4aa0b6c6901674f6b, type: 3}
-  fireForce: 20
-  delay: 0.5
+  fireForce: 90
+  delay: 0.3
