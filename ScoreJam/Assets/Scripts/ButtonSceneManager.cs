@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class ButtonSceneManager : MonoBehaviour
 {
+    public ParticleSystem particles;
+    
     public void StartGame()
     {
         SceneManager.LoadScene("Main");
@@ -14,6 +16,7 @@ public class ButtonSceneManager : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
     }
 
     public void Continue()
