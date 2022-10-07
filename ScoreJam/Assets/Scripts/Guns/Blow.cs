@@ -1,13 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Blow : MonoBehaviour
 {
-    [SerializeField] private float blowDelay;
     [SerializeField] private AudioSource blowSound;
     [SerializeField] private GameObject boomVFX;
     private static List<GameObject> GOinTrigger = new List<GameObject>();
+    private bool BAM;
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,15 +19,17 @@ public class Blow : MonoBehaviour
     {
         GOinTrigger.Remove(other.gameObject);
     }
-    // Start is called before the first frame update
-    private void Awake()
+    private void OnCollisionEnter(Collision collision)
     {
-        StartCoroutine(BOM());
+        if (!BAM)
+        {
+            StartCoroutine(BOM());
+            BAM = !BAM;
+        }
     }
 
     private IEnumerator BOM()
     {
-        yield return new WaitForSeconds(blowDelay);
         foreach (var t in GOinTrigger)
         {
             if(t)
