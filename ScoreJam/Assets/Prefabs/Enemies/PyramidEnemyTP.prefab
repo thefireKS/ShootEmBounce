@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportationDelay: 2
-  radius: 5
+  radius: 20
 --- !u!1 &2983234148843310506
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,5 +174,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a006a9695786a439ccbb962562589b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Parent: {fileID: 0}
+  Parent: {fileID: 1213518656015163522}
   maxHP: 3
