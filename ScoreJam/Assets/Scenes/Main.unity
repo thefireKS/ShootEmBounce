@@ -1418,6 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449667b4147f88b4c8912e6920a54e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 0}
 --- !u!114 &461914708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2677,6 +2678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449667b4147f88b4c8912e6920a54e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 0}
 --- !u!1 &920888567
 GameObject:
   m_ObjectHideFlags: 0
@@ -3077,6 +3079,18 @@ PrefabInstance:
       propertyPath: scp
       value: 
       objectReference: {fileID: 863410189}
+    - target: {fileID: 316385908600368018, guid: 4c3b1cf4d182caf44ac42805e6c55f4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4315385687470699559, guid: 4c3b1cf4d182caf44ac42805e6c55f4d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841252754922796204, guid: 4c3b1cf4d182caf44ac42805e6c55f4d, type: 3}
+      propertyPath: fireForce
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6467901239036584278, guid: 4c3b1cf4d182caf44ac42805e6c55f4d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4021,6 +4035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449667b4147f88b4c8912e6920a54e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 0}
 --- !u!114 &1224838452
 MonoBehaviour:
   m_ObjectHideFlags: 0
