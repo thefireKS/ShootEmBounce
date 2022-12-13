@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject ammo;
     [SerializeField] private float fireForce;
     [SerializeField] private float delay;
+    [SerializeField] private ParticleSystem particleSystem;
     private float currentTime = 0f;
     private bool _allowFire = true;
     void Update()
@@ -34,6 +35,7 @@ public class Gun : MonoBehaviour
 
     private void Shooting()
     {
+        particleSystem.Play();
         foreach (var gunDot in gunDots)
         {
             Vector3 spawnPoint = gunDot.transform.position;
