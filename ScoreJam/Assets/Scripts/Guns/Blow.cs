@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +7,7 @@ public class Blow : MonoBehaviour
     [SerializeField] private AudioSource blowSound;
     [SerializeField] private GameObject boomVFX;
     private static List<GameObject> GOinTrigger = new List<GameObject>();
-    private bool BAM;
+    private bool _bam;
 
     void OnTriggerEnter(Collider other)
     {
@@ -21,10 +20,10 @@ public class Blow : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (!BAM)
+        if (!_bam)
         {
             StartCoroutine(BOM());
-            BAM = !BAM;
+            _bam = !_bam;
         }
     }
 

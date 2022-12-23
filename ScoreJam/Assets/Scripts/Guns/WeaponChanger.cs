@@ -5,11 +5,10 @@ public class WeaponChanger : MonoBehaviour
     [SerializeField] private ScorePoints scp;
     [SerializeField ] private GameObject[] weapons;
     private int _weaponInOrder;
-    private int nextScoreGoal = 500, goalMultiplier = 0;
+    private int _nextScoreGoal = 500, _goalMultiplier;
     private void Update()
     {
-        Debug.Log(nextScoreGoal);
-        if (scp.score >= nextScoreGoal)
+        if (scp.score >= _nextScoreGoal)
         {
             weapons[_weaponInOrder].gameObject.SetActive(false);
             _weaponInOrder++;
@@ -18,7 +17,7 @@ public class WeaponChanger : MonoBehaviour
                 _weaponInOrder = 0;
             }
             weapons[_weaponInOrder].gameObject.SetActive(true);
-            nextScoreGoal += 500 + (500 * goalMultiplier++);
+            _nextScoreGoal += 500 + (500 * _goalMultiplier++);
         }
     }
 }

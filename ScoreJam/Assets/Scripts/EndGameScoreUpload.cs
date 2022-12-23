@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using LootLocker.Requests;
 using TMPro;
@@ -16,7 +13,7 @@ public class EndGameScoreUpload : MonoBehaviour
     [SerializeField]
     private ScorePoints scp;
 
-    private string leaderboardKey = "highscoreBoard";
+    private string _leaderboardKey = "highscoreBoard";
 
     private void Start()
     {
@@ -31,7 +28,7 @@ public class EndGameScoreUpload : MonoBehaviour
          //ensuring that every new score gets its' own post on the leaderboard.
          
          string infiniteScores = MainMenuScoreSetup.memberID;
-        LootLockerSDKManager.SubmitScore(infiniteScores, scp.score, leaderboardKey, playerNameInputField.text, (response) =>
+        LootLockerSDKManager.SubmitScore(infiniteScores, scp.score, _leaderboardKey, playerNameInputField.text, (response) =>
         {
             if (response.success)
             {
