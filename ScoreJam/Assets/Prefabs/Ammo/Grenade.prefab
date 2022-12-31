@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blowSound: {fileID: 9160316857693251030}
-  boomVFX: {fileID: 8551538313085619131, guid: 2a33b3a2b85981b41aec642a6edde33b, type: 3}
+  boomVFX: {fileID: 6927687582602190642, guid: 295dccf9044e5fd4fb08ffd65510ce49, type: 3}
 --- !u!135 &6498887933745936564
 SphereCollider:
   m_ObjectHideFlags: 0
