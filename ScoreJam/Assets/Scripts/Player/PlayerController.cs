@@ -1,16 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float jumpHeight;
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float maxSpeed;
     
-    private Rigidbody rb;
-    private CameraRotating cmr;
+    [SerializeField] private float maxSpeed;
+    [SerializeField][Range(0,1)] private float decelerationFactor;
+
+    private Transform _orientation;
+    
+    private Rigidbody _rb;
+    //private CameraRotating cmr;
     private GameObject lastCollided;
 
     private Vector3 lastVelocity, direction, summary;
@@ -21,13 +22,14 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        cmr = GetComponentInChildren<CameraRotating>();
+        _orientation = Camera.main.transform;
+        _rb = GetComponent<Rigidbody>();
+        //cmr = GetComponentInChildren<CameraRotating>();
     }
 
     void Update()
     {
-        lastVelocity = rb.velocity;
+        lastVelocity = _rb.velocity;
         Inputs();
     }
 
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log(canJump);
         if (jumpPressed && canJump)
         {
-            rb.AddForce(0,jumpHeight,0,ForceMode.Impulse);
+            _rb.AddForce(0,jumpHeight,0,ForceMode.Impulse);
             canJump = false;
         }
 
@@ -49,7 +51,37 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        rb.velocity += new Vector3(cmr.movement.x * moveSpeed, 0f, cmr.movement.z * moveSpeed);
+        Move();
+        
+        //_rb.velocity += new Vector3(cmr.movement.x * moveSpeed, 0f, cmr.movement.z * moveSpeed);
+    }
+
+    private void Move()
+    {
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            Vector3 movement = new Vector3();
+
+            float vertical = Input.GetAxis("Vertical");
+            float horizontal = Input.GetAxis("Horizontal");
+            
+            movement += _orientation.forward * vertical;
+            movement += _orientation.right * horizontal;
+
+            movement *= moveSpeed;
+
+            _rb.AddForce(movement);
+        }
+
+        ControlSpeed();
+    }
+
+    private void ControlSpeed()
+    {
+        if (_rb.velocity.magnitude > maxSpeed)
+        {
+            _rb.velocity *= decelerationFactor;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -62,7 +94,7 @@ public class PlayerController : MonoBehaviour
             return;
         direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
         summary = direction * Mathf.Max(speed, 0f) * 1.02f;
-        rb.velocity = new Vector3(Mathf.Min(summary.x, maxSpeed), Mathf.Min(rb.velocity.y,maxSpeed), Mathf.Min(summary.z, maxSpeed));
+        _rb.velocity = new Vector3(Mathf.Min(summary.x, maxSpeed), Mathf.Min(_rb.velocity.y,maxSpeed), Mathf.Min(summary.z, maxSpeed));
     }
 
     private void Inputs()
