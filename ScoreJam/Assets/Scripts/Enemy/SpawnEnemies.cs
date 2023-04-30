@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnEnemies : MonoBehaviour
 {
@@ -9,12 +8,19 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField] private float radius = 3f;
     [SerializeField] private float delay = 5f;
 
-    private void Start()
+    private float _timer;
+
+    private void FixedUpdate()
     {
-        StartCoroutine(Spawn());
+        _timer += Time.fixedDeltaTime;
+        if (_timer >= delay)
+        {
+            Spawn();
+            _timer = 0f;
+        }
     }
 
-    private IEnumerator Spawn()
+    private void Spawn()
     {
         for (int i = 0; i < enemies.Length; i++)
         {
@@ -24,8 +30,6 @@ public class SpawnEnemies : MonoBehaviour
 
             if (i == enemies.Length - 1)
                 i = 0;
-
-            yield return new WaitForSeconds(delay);
         }
     }
 

@@ -11,8 +11,6 @@ public class EnemyHP : MonoBehaviour
         _currentHealth = maxHealth;
     }
 
-    
-    
     public void TakeDamage(float damage)
     {
         _currentHealth -= damage;

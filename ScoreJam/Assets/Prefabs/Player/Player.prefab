@@ -5142,6 +5142,7 @@ GameObject:
   - component: {fileID: 5933030483119419893}
   - component: {fileID: 5933030483119419656}
   - component: {fileID: 5933030483119419659}
+  - component: {fileID: 5507651337864877114}
   - component: {fileID: 5933030483119419894}
   - component: {fileID: 5933030483119419657}
   - component: {fileID: 3444560686214449081}
@@ -5186,8 +5187,6 @@ MonoBehaviour:
   jumpHeight: 10
   jumpCheckDistance: 1
   moveSpeed: 10
-  maxSpeed: 25
-  decelerationFactor: 0.8
 --- !u!114 &5933030483119419659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5207,6 +5206,21 @@ MonoBehaviour:
   endGameUI: {fileID: 0}
   activeGameUI: {fileID: 0}
   cursorTex: {fileID: 2800000, guid: b455a5d87cd37d44a8e83f93e02228b6, type: 3}
+--- !u!114 &5507651337864877114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933030483119419658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4bcff12260658f4287959cf8a37451c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 25
+  decelerationFactor: 0.8
+  accelerationFactor: 1.02
 --- !u!135 &5933030483119419894
 SphereCollider:
   m_ObjectHideFlags: 0

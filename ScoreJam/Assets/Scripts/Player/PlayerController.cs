@@ -8,20 +8,10 @@ public class PlayerController : MonoBehaviour
     [Space(15)]
     [SerializeField] private float moveSpeed;
     
-    [Space(15)]
-    [SerializeField] private float maxSpeed;
-    [SerializeField][Range(0,1)] private float decelerationFactor;
-
     private Transform _orientation;
     
     private Rigidbody _rb;
-    //private CameraRotating cmr;
-    private GameObject lastCollided;
 
-    private Vector3 lastVelocity, direction, summary;
-
-    private float speed;
-    // Start is called before the first frame update
     void Start()
     {
         _orientation = Camera.main.transform;
@@ -32,8 +22,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Jump();
-
-        lastVelocity = _rb.velocity;
     }
 
     private void FixedUpdate()
@@ -75,28 +63,5 @@ public class PlayerController : MonoBehaviour
 
             _rb.AddForce(movement);
         }
-
-        ControlSpeed();
-    }
-
-    private void ControlSpeed()
-    {
-        if (_rb.velocity.magnitude > maxSpeed)
-        {
-            _rb.velocity *= decelerationFactor;
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        lastCollided = collision.gameObject;
-
-        if (lastVelocity.magnitude < maxSpeed)
-            speed = lastVelocity.magnitude;
-        else
-            return;
-        direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
-        summary = direction * Mathf.Max(speed, 0f) * 1.02f;
-        _rb.velocity = new Vector3(Mathf.Min(summary.x, maxSpeed), Mathf.Min(_rb.velocity.y,maxSpeed), Mathf.Min(summary.z, maxSpeed));
     }
 }
