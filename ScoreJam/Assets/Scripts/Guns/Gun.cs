@@ -4,12 +4,13 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private float bulletsPerMinute;
     private float _delay;
-    private float _currentTime = 0f;
+    private float _currentTime;
     private bool _allowFire = true;
     
     [SerializeField] private ParticleSystem gunVFX;
 
     [SerializeField] private float damage;
+    [SerializeField] private float maxDistance;
     
     private Camera _camera;
 
@@ -58,7 +59,7 @@ public class Gun : MonoBehaviour
         Ray ray = _camera.ScreenPointToRay(screenPoint);
 
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100f))
+        if (Physics.Raycast(ray, out hit, maxDistance))
         {
             if(hit.transform.CompareTag("Enemy"))
             {
