@@ -3,8 +3,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float jumpHeight;
+    [SerializeField] private float jumpCheckDistance;
+    
+    [Space(15)]
     [SerializeField] private float moveSpeed;
     
+    [Space(15)]
     [SerializeField] private float maxSpeed;
     [SerializeField][Range(0,1)] private float decelerationFactor;
 
@@ -15,8 +19,6 @@ public class PlayerController : MonoBehaviour
     private GameObject lastCollided;
 
     private Vector3 lastVelocity, direction, summary;
-
-    private bool jumpPressed, canJump = true;
 
     private float speed;
     // Start is called before the first frame update
@@ -29,31 +31,32 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Jump();
+
         lastVelocity = _rb.velocity;
-        Inputs();
     }
 
     private void FixedUpdate()
     {
-        Debug.Log(canJump);
-        if (jumpPressed && canJump)
-        {
-            _rb.AddForce(0,jumpHeight,0,ForceMode.Impulse);
-            canJump = false;
-        }
+        Move();
+        //_rb.velocity += new Vector3(cmr.movement.x * moveSpeed, 0f, cmr.movement.z * moveSpeed);
+    }
 
-        if (lastCollided != null)
+    private void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (lastCollided.CompareTag("Floor"))
+            Vector3 legPosition = transform.position -
+                                  new Vector3(0, transform.gameObject.GetComponent<SphereCollider>().radius, 0);
+            bool canJump = Physics.Raycast(legPosition, Vector3.down, jumpCheckDistance);
+            if (canJump)
             {
-                canJump = true;
-                lastCollided = null;
+                var velocity = _rb.velocity;
+                velocity = new Vector3(velocity.x, 0f, velocity.z);
+                _rb.velocity = velocity;
+                _rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
             }
         }
-
-        Move();
-        
-        //_rb.velocity += new Vector3(cmr.movement.x * moveSpeed, 0f, cmr.movement.z * moveSpeed);
     }
 
     private void Move()
@@ -95,10 +98,5 @@ public class PlayerController : MonoBehaviour
         direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
         summary = direction * Mathf.Max(speed, 0f) * 1.02f;
         _rb.velocity = new Vector3(Mathf.Min(summary.x, maxSpeed), Mathf.Min(_rb.velocity.y,maxSpeed), Mathf.Min(summary.z, maxSpeed));
-    }
-
-    private void Inputs()
-    {
-        jumpPressed = Input.GetKey(KeyCode.Space);
     }
 }
