@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private GameObject[] gunDots;
-    
-    [SerializeField] private GameObject ammo;
-    [SerializeField] private float fireForce;
     [SerializeField] private float bulletsPerMinute;
-
     private float _delay;
-    
-    [SerializeField] private ParticleSystem particleSystem;
-    private float currentTime = 0f;
+    private float _currentTime = 0f;
     private bool _allowFire = true;
+    
+    [SerializeField] private ParticleSystem gunVFX;
+
+    [SerializeField] private float damage;
+    
+    private Camera _camera;
 
     private void Start()
     {
-        _delay = 1/(bulletsPerMinute*60);
+        _delay = 60 / bulletsPerMinute;
+        
+        _camera = Camera.main;
     }
 
     void Update()
@@ -37,25 +38,32 @@ public class Gun : MonoBehaviour
     {
         if (_allowFire == false)
         {
-            currentTime += Time.fixedDeltaTime;
-            if (currentTime > _delay)
+            _currentTime += Time.fixedDeltaTime;
+            if (_currentTime > _delay)
             {
                 _allowFire = true;
-                currentTime = 0f;
+                _currentTime = 0f;
             }
         }
     }
 
     private void Shooting()
     {
-        particleSystem.Play();
-        foreach (var gunDot in gunDots)
+        if(gunVFX)gunVFX.Play();
+        
+        var width = Screen.width / 2;
+        var height = Screen.height / 2;
+        Vector3 screenPoint = new Vector3(width, height, 0);
+        
+        Ray ray = _camera.ScreenPointToRay(screenPoint);
+
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100f))
         {
-            Vector3 spawnPoint = gunDot.transform.position;
-            Quaternion spawnRoot = gunDot.transform.rotation;
-            GameObject firedAmmo = Instantiate(ammo, spawnPoint, spawnRoot);
-            Rigidbody firedAmmoRb = firedAmmo.GetComponent<Rigidbody>();
-            firedAmmoRb.AddForce(firedAmmo.transform.forward * fireForce, ForceMode.Impulse);
+            if(hit.transform.CompareTag("Enemy"))
+            {
+                hit.transform.GetComponent<EnemyHP>().TakeDamage(damage);
+            }
         }
     }
 }

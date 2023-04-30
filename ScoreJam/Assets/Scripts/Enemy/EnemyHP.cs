@@ -2,42 +2,29 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-    [SerializeField] private int maxHitPoints;
-    private Rigidbody _rb;
-    private int _currentHp;
+    [SerializeField] private float maxHealth;
     
-    private GameObject lastCollided;
-    private Vector3 lastVelocity, direction, summary;
-    private float speed;
+    private float _currentHealth;
 
     private void Awake()
     {
-        _currentHp = maxHitPoints;
-        _rb = GetComponent<Rigidbody>();
+        _currentHealth = maxHealth;
     }
 
-    private void Update()
+    
+    
+    public void TakeDamage(float damage)
     {
-        lastVelocity = _rb.velocity;
+        _currentHealth -= damage;
+        CheckHealth();
     }
 
-    void OnCollisionEnter(Collision other)
+    private void CheckHealth()
     {
-        if(other.gameObject.CompareTag("Ammo"))
+        if (_currentHealth <= 0)
         {
-            _currentHp--;
-            if(_currentHp == 0)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
-        lastCollided = other.gameObject;
-
-            if (lastVelocity.magnitude < 20f)
-                speed = lastVelocity.magnitude;
-            direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal);
-            summary = direction * Mathf.Max(speed, 0f) * 1.05f;
-            _rb.velocity = new Vector3(Mathf.Min(summary.x, 20f), Mathf.Min(_rb.velocity.y,20f), Mathf.Min(summary.z, 20f));
     }
 
     private void OnDestroy()
