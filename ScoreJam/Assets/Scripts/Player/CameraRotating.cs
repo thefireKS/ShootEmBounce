@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class CameraRotating : MonoBehaviour
 {
-    [SerializeField] private float sensitivity;
-    private float rotX, rotY;
-    public Vector3 movement;
+    [SerializeField] private float mouseSensitivity;
+    [SerializeField] private float minAngle, maxAngle;
+    private float _xRotation, _yRotation;
+    // public Vector3 movement;
 
     private void Start()
     {
@@ -16,15 +16,26 @@ public class CameraRotating : MonoBehaviour
 
     private void Update()
     {
-        if (Time.timeScale != 0f)
-        {
-            rotY += Input.GetAxis("Mouse X");
-            rotX += Input.GetAxis("Mouse Y");
-
-            transform.rotation = Quaternion.Euler(-rotX * sensitivity, rotY * sensitivity, 0);
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = -Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
         
-            movement = transform.forward;
-            movement = new Vector3(movement.x, 0f, movement.z);
+        _yRotation += mouseX;
+        _xRotation += mouseY;
+        
+        _xRotation = Mathf.Clamp(_xRotation, minAngle, maxAngle);
+
+        transform.localRotation = Quaternion.Euler(_xRotation, _yRotation, 0f);
+        
+        /*if (Time.timeScale != 0f)
+        {
+            _rotY += Input.GetAxis("Mouse X");
+            _rotX += Input.GetAxis("Mouse Y");
+
+            _rotX *= sensitivity;
+            _rotY *= sensitivity;
+            _rotY = Mathf.Clamp(_rotY, minAngle, maxAngle);
+
+            transform.rotation = Quaternion.Euler(-_rotX, _rotY, 0);
 
             if (Cursor.lockState == CursorLockMode.None && Input.GetMouseButton(0))
             {
@@ -36,6 +47,6 @@ public class CameraRotating : MonoBehaviour
                 Camera.main.fieldOfView = 60;
             else
                 Camera.main.fieldOfView = 75;
-        }
+        }*/
     }
 }
