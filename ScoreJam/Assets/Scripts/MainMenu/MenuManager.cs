@@ -1,9 +1,18 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> menus;
+    
+    [SerializeField] private GameObject fading;
+    private Animator _fadeAnimator;
+
+    private void Start()
+    {
+        _fadeAnimator = fading.GetComponent<Animator>();
+    }
 
     private string _currentMenu;
 
@@ -21,5 +30,11 @@ public class MenuManager : MonoBehaviour
                 menu.SetActive(false);
             }
         }
+        Fade();
+    }
+
+    private void Fade()
+    {
+        _fadeAnimator.Play("LoadAnim");
     }
 }
