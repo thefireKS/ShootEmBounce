@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -9,9 +9,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject fading;
     private Animator _fadeAnimator;
 
+    private PlayerData _playerData;
+
     private void Start()
     {
         _fadeAnimator = fading.GetComponent<Animator>();
+
+        _playerData = FindObjectOfType<PlayerData>();
     }
 
     private string _currentMenu;
@@ -36,5 +40,11 @@ public class MenuManager : MonoBehaviour
     private void Fade()
     {
         _fadeAnimator.Play("LoadAnim");
+    }
+
+    public void LoadScene()
+    {
+        var sceneName = _playerData.chosenArena;
+        SceneManager.LoadScene(sceneName);
     }
 }
