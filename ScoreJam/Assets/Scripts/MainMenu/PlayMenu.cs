@@ -9,7 +9,7 @@ public class PlayMenu : MonoBehaviour
     [Serializable]
     private struct Map
     {
-        public Texture2D mapPreview;
+        public Sprite mapPreview;
         public string mapDescription;
         public string mapName;
     }
@@ -21,4 +21,16 @@ public class PlayMenu : MonoBehaviour
     [SerializeField] private List<Map> maps;
     private int _currentMap;
 
+    private void Start()
+    {
+        UpdateContent();
+    }
+
+    private void UpdateContent()
+    {
+        var map = maps[_currentMap];
+        mapPreviewImage.sprite = map.mapPreview;
+        mapNameText.text = map.mapName;
+        mapDescriptionText.text = map.mapDescription;
+    }
 }

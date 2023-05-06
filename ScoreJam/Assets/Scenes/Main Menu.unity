@@ -1787,9 +1787,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapPreviewImage: {fileID: 1654883445}
   mapNameText: {fileID: 1503778693}
-  mapDescriptionText: {fileID: 0}
+  mapDescriptionText: {fileID: 601290231}
   maps:
-  - mapPreview: {fileID: 2800000, guid: c4d28a6ec96b0f14797da50eceb786c9, type: 3}
+  - mapPreview: {fileID: 21300000, guid: c4d28a6ec96b0f14797da50eceb786c9, type: 3}
     mapDescription: Toy Machine map
     mapName: Toy Machine
 --- !u!1 &508502566
@@ -2212,7 +2212,7 @@ GameObject:
   - component: {fileID: 601290232}
   - component: {fileID: 601290231}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MapDescriptionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
