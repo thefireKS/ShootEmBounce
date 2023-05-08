@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class ContentMenu : MonoBehaviour
 {
     [Serializable]
-    private struct Content
+    public struct Content
     {
         public Sprite contentPreview;
         public string contentDescription;
         public string contentName;
+        public int price;
     }
 
     [SerializeField] private Image contentPreviewImage;
@@ -49,5 +50,10 @@ public class ContentMenu : MonoBehaviour
         }
         
         UpdateContent();
+    }
+
+    public Content ReturnCurrent()
+    {
+        return contents[_currentContent];
     }
 }

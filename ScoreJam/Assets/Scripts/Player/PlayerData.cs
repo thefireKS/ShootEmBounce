@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
     private int _currentMoney;
-
+    
     public string chosenArena;
+    public string availableMaps;
 
     private void Start()
     {
@@ -30,6 +32,14 @@ public class PlayerData : MonoBehaviour
         }
         
         chosenArena = PlayerPrefs.GetString("map");
+        
+        // Set available maps by player data
+        if (!PlayerPrefs.HasKey("maps"))
+        {
+            PlayerPrefs.SetString("maps", "Toy Machine");
+        }
+
+        availableMaps = PlayerPrefs.GetString("maps");
     }
 
     public void ChangeMoney(int value)
@@ -38,9 +48,34 @@ public class PlayerData : MonoBehaviour
         PlayerPrefs.SetInt("money", _currentMoney);
     }
 
+    public int ReturnCurrentMoney()
+    {
+        return _currentMoney;
+    }
+
     public void ChangeMap(string map)
     {
         chosenArena = map;
         PlayerPrefs.SetString("map", map);
+    }
+
+    public void ChangeAvailableContent(string contentType, string contentName)
+    {
+        if (contentType == "maps")
+        {
+            ChangeAvailableMaps(contentName);
+            return;
+        }
+
+        if (contentType == "weapons")
+        {
+            //ChangeAvailableMaps(contentName);
+            return;
+        }
+    }
+    public void ChangeAvailableMaps(string mapToAdd)
+    {
+        availableMaps += mapToAdd;
+        PlayerPrefs.SetString("maps", availableMaps);
     }
 }
