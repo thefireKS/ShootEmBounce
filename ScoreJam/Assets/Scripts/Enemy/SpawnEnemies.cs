@@ -3,17 +3,16 @@ using Random = UnityEngine.Random;
 
 public class SpawnEnemies : MonoBehaviour
 {
-    [SerializeField] private Material[] enemiesMaterial;
     [SerializeField] private GameObject[] enemies;
-    [SerializeField] private float radius = 3f;
-    [SerializeField] private float delay = 5f;
+    [SerializeField] private float radius;
+    [SerializeField] private float timeBetweenWaves;
 
     private float _timer;
 
     private void FixedUpdate()
     {
         _timer += Time.fixedDeltaTime;
-        if (_timer >= delay)
+        if (_timer >= timeBetweenWaves)
         {
             Spawn();
             _timer = 0f;
@@ -25,7 +24,6 @@ public class SpawnEnemies : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             GameObject enemy = Instantiate(enemies[i], transform.position + Random.insideUnitSphere * radius, Quaternion.identity);
-            enemy.GetComponent<Renderer>().material = enemiesMaterial[Random.Range(0,enemiesMaterial.Length-1)];
             enemy.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-25, 25), Random.Range(-25, 25), Random.Range(-25, 25));
 
             if (i == enemies.Length - 1)

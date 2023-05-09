@@ -10,10 +10,10 @@ public class ScorePoints : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreMultiplierText;
     [SerializeField] private int comboCount = 5;
     [SerializeField] private Color[] scoreColors;
-    private int curComboCount = 0;
+    private int _curComboCount;
     [SerializeField] private float comboTime = 3f;
-    private float comboTimer = 0f;
-    private bool comboInProgress = false;
+    private float _comboTimer;
+    private bool _comboInProgress;
 
     private void Start()
     {
@@ -26,17 +26,17 @@ public class ScorePoints : MonoBehaviour
     {
         if (instance != null)
         {
-            if (!instance.comboInProgress )
+            if (!instance._comboInProgress )
             {
-                instance.curComboCount++;
-                instance.comboInProgress = true;
+                instance._curComboCount++;
+                instance._comboInProgress = true;
             }
-            else if (instance.curComboCount < instance.comboCount)
+            else if (instance._curComboCount < instance.comboCount)
             {
-                instance.curComboCount++;
+                instance._curComboCount++;
             }
-            instance.comboTimer = 0f;
-            instance.score += 100 * instance.curComboCount;
+            instance._comboTimer = 0f;
+            instance.score += 100 * instance._curComboCount;
             instance.scoreText.text = "Score: " + instance.score;
         }
     }
@@ -45,33 +45,33 @@ public class ScorePoints : MonoBehaviour
     {
         ComboUpdater();
         
-        if (comboInProgress)
+        if (_comboInProgress)
         {
-            comboTimer += Time.deltaTime;
+            _comboTimer += Time.deltaTime;
 
-            if (comboTimer >= comboTime)
+            if (_comboTimer >= comboTime)
                 EndOfCombo();
         }
     }
 
     private void ComboUpdater()
     {
-        if (instance.curComboCount == 0)
+        if (instance._curComboCount == 0)
         {
             instance.scoreMultiplierText.text = "x" + 1;
             instance.scoreMultiplierText.color = instance.scoreColors[0];
         }
         else
         {
-            instance.scoreMultiplierText.text = "x" + instance.curComboCount;
-            instance.scoreMultiplierText.color = instance.scoreColors[instance.curComboCount-1];
+            instance.scoreMultiplierText.text = "x" + instance._curComboCount;
+            instance.scoreMultiplierText.color = instance.scoreColors[instance._curComboCount-1];
         }
     }
 
     private void EndOfCombo()
     {
-        comboInProgress = false;
-        curComboCount = 0;
-        comboTimer = 0f;
+        _comboInProgress = false;
+        _curComboCount = 0;
+        _comboTimer = 0f;
     }
 }

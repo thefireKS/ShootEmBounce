@@ -16,6 +16,9 @@ public class MenuManager : MonoBehaviour
         _fadeAnimator = fading.GetComponent<Animator>();
 
         _playerData = FindObjectOfType<PlayerData>();
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private string _currentMenu;
