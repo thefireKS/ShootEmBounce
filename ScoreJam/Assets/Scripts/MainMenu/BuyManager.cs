@@ -48,6 +48,8 @@ public class BuyManager : MonoBehaviour
             _playerData.ChangeMoney(-currentContent.price);
             ChangeMoneyText();
             _playerData.ChangeAvailableContent(buyType, currentContent.contentName);
+            UpdateStatus();
+            Debug.Log($"The player bought {currentContent.contentName}");
         }
     }
 

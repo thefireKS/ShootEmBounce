@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 5510984067170624602}
   - component: {fileID: 9124854770644898707}
   - component: {fileID: -6164962053979763132}
-  - component: {fileID: 7252548282350545606}
   - component: {fileID: 4543254699243874854}
+  - component: {fileID: 7252548282350545606}
+  - component: {fileID: 7183772659958255193}
   m_Layer: 0
   m_Name: SphereEnemy
   m_TagString: Enemy
@@ -113,6 +114,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
+--- !u!114 &4543254699243874854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5636711953444985004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4bcff12260658f4287959cf8a37451c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 40
+  decelerationFactor: 0.9
+  accelerationFactor: 1.2
 --- !u!54 &7252548282350545606
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,7 +145,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &4543254699243874854
+--- !u!114 &7183772659958255193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,9 +154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5636711953444985004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4bcff12260658f4287959cf8a37451c, type: 3}
+  m_Script: {fileID: 11500000, guid: e4357f8aa3ea0564fb1a7e889edb3757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 100
-  decelerationFactor: 0.9
-  accelerationFactor: 2
+  myScore: 100
