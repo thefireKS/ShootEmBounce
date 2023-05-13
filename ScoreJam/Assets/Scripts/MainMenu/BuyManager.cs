@@ -11,6 +11,7 @@ public class BuyManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI statusText;
 
     [SerializeField] private Button buyButton;
+    [SerializeField] private GameObject applyButton;
 
     [SerializeField] private TextMeshProUGUI moneyText;
 
@@ -31,11 +32,13 @@ public class BuyManager : MonoBehaviour
         {
             statusText.text = "BOUGHT";
             buyButton.enabled = false;
+            applyButton.SetActive(true);
         }
         else
         {
             statusText.text = "BUY";
             buyButton.enabled = true;
+            applyButton.SetActive(false);
         }
     }
 
