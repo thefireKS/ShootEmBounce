@@ -6,7 +6,10 @@ public class PlayerData : MonoBehaviour
     private int _currentMoney;
     
     public string chosenArena;
+    public string chosenWeapon;
+    
     public string availableMaps;
+    public string availableWeapons;
 
     private void Start()
     {
@@ -40,6 +43,22 @@ public class PlayerData : MonoBehaviour
         }
 
         availableMaps = PlayerPrefs.GetString("maps");
+        
+        // Set weapon by player data
+        if (!PlayerPrefs.HasKey("weapon"))
+        {
+            PlayerPrefs.SetString("weapon", "Nerf Gun");
+        }
+        
+        chosenWeapon = PlayerPrefs.GetString("weapon");
+        
+        // Set available weapons by player data
+        if (!PlayerPrefs.HasKey("weapons"))
+        {
+            PlayerPrefs.SetString("weapons", "Nerf Gun");
+        }
+
+        availableWeapons = PlayerPrefs.GetString("weapons");
     }
 
     public void ChangeMoney(int value)
@@ -58,24 +77,17 @@ public class PlayerData : MonoBehaviour
         chosenArena = map;
         PlayerPrefs.SetString("map", map);
     }
+    
+    public void ChangeWeapon(string weapon)
+    {
+        chosenWeapon = weapon;
+        PlayerPrefs.SetString("weapon", weapon);
+    }
 
     public void ChangeAvailableContent(string contentType, string contentName)
     {
-        if (contentType == "maps")
-        {
-            ChangeAvailableMaps(contentName);
-            return;
-        }
-
-        if (contentType == "weapons")
-        {
-            //ChangeAvailableMaps(contentName);
-            return;
-        }
-    }
-    public void ChangeAvailableMaps(string mapToAdd)
-    {
-        availableMaps += mapToAdd;
-        PlayerPrefs.SetString("maps", availableMaps);
+        var availableContent = PlayerPrefs.GetString(contentType);
+        availableContent += contentName;
+        PlayerPrefs.SetString(contentType, availableContent);
     }
 }

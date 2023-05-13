@@ -56,4 +56,10 @@ public class ContentMenu : MonoBehaviour
     {
         return contents[_currentContent];
     }
+
+    public void ChoseWeapon()
+    {
+        PlayerData _playerData = FindObjectOfType<PlayerData>();
+        _playerData.ChangeWeapon(contents[_currentContent].contentName);
+    }
 }
