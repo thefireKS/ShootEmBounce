@@ -2350,6 +2350,7 @@ MonoBehaviour:
   contentMenu: {fileID: 507903246}
   statusText: {fileID: 237816650}
   buyButton: {fileID: 1252788655}
+  applyButton: {fileID: 1244863246}
   moneyText: {fileID: 1153480986}
 --- !u!1 &508502566
 GameObject:
@@ -2507,6 +2508,7 @@ MonoBehaviour:
   contentMenu: {fileID: 517940860}
   statusText: {fileID: 1225356825}
   buyButton: {fileID: 1172765533}
+  applyButton: {fileID: 1969170330}
   moneyText: {fileID: 746954737}
 --- !u!114 &517940860
 MonoBehaviour:
@@ -2524,13 +2526,21 @@ MonoBehaviour:
   contentNameText: {fileID: 1982447337}
   contentDescriptionText: {fileID: 494256448}
   contents:
-  - contentPreview: {fileID: 21300000, guid: c4d28a6ec96b0f14797da50eceb786c9, type: 3}
+  - contentPreview: {fileID: 21300000, guid: 9aec1af469be8a84bbcbf1d3716f5d1f, type: 3}
     contentDescription: Nerf Gun
     contentName: Nerf Gun
     price: 0
-  - contentPreview: {fileID: 21300000, guid: c4d28a6ec96b0f14797da50eceb786c9, type: 3}
-    contentDescription: Sniper Gun
-    contentName: Sniper Gun
+  - contentPreview: {fileID: 21300000, guid: 397806282ade1f04db26ba162ddfbc04, type: 3}
+    contentDescription: Sniper Rifle
+    contentName: Sniper Rifle
+    price: 1
+  - contentPreview: {fileID: 21300000, guid: 08bf560a468098847919b41d423ad1be, type: 3}
+    contentDescription: Cosmo Gun
+    contentName: Cosmo Gun
+    price: 10
+  - contentPreview: {fileID: 21300000, guid: b275ac20aefb8db4a83f32209db6094d, type: 3}
+    contentDescription: Minigun
+    contentName: Minigun
     price: 100
 --- !u!1 &540851999
 GameObject:

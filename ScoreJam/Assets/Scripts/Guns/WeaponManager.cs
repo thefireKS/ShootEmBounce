@@ -22,6 +22,10 @@ public class WeaponManager : MonoBehaviour
             {
                 weapon.SetActive(false);
             }
+            else
+            {
+                weapon.SetActive(true);
+            }
         }
     }
 }
