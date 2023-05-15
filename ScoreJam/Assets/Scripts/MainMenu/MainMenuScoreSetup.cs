@@ -4,65 +4,101 @@ using LootLocker.Requests;
 
 public class MainMenuScoreSetup : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI leaderboardTop10Text;
-    [SerializeField]
-    private TextMeshProUGUI currentRankText;
-    
-    private string leaderboardKey = "highscoreBoard";
+    [SerializeField] private TextMeshProUGUI leaderboardTop10Text_Name;
+    [SerializeField] private TextMeshProUGUI currentRankText;
 
-    public static string memberID;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TextMeshProUGUI[] members;
+    
+    [SerializeField] private string[] leaderboardKeys;
+    private int _currentLeaderboard;
+
+    private void Start()
     {
-        StartGuestSession();
+        UpdateCurrentRank();
+        UpdateLeaderboardTop10(leaderboardKeys[0]);
     }
     
-    private void StartGuestSession()
+    public void ChangeLeaderboard(int step)
     {
-        LootLockerSDKManager.StartGuestSession((response) =>
+        _currentLeaderboard += step;
+        
+        if (_currentLeaderboard >= leaderboardKeys.Length)
         {
-            if (response.success)
-            {
-                //infoText.text = "Guest session started";
-                memberID = response.player_id.ToString();
-                UpdateLeaderboardTop10();
-                UpdateCurrentRank();
-            }
-        });
+            _currentLeaderboard = 0;
+        }
+
+        if (_currentLeaderboard < 0)
+        {
+            _currentLeaderboard = leaderboardKeys.Length - 1;
+        }
+        
+        UpdateLeaderboardTop10(leaderboardKeys[_currentLeaderboard]);
     }
-    
-    void UpdateLeaderboardTop10()
+
+    public void UpdateLeaderboardTop10(string leaderboardKey)
     {
+        switch (leaderboardKey)
+        {
+            case ("TotalLeaderboard"):
+            {
+                leaderboardTop10Text_Name.text = "TOP 10 BALLOON POPPERS";
+                break;
+            }
+            case ("ToyMachineLeaderboard"):
+            {
+                leaderboardTop10Text_Name.text = "TOP 10 'TOY MACHINE'";
+                break;
+            }
+            case ("CanyonLeaderboard"):
+            {
+                leaderboardTop10Text_Name.text = "TOP 10 'CANYON'";
+                break;
+            }
+            case ("PrototypeLeaderboard"):
+            {
+                leaderboardTop10Text_Name.text = "TOP 10 'PROTOTYPE'";
+                break;
+            }
+            default:
+            {
+                leaderboardTop10Text_Name.text = "Miss";
+                break;
+            }
+        }
+
+        foreach (var member in members)
+        {
+            member.text = "";
+        }
+        
         LootLockerSDKManager.GetScoreList(leaderboardKey, 10, (response) =>
         {
             if (response.success)
             {
-                string leaderboardText = "";
                 for (int i = 0; i < response.items.Length; i++)
                 {
                     LootLockerLeaderboardMember currentEntry = response.items[i];
-                    leaderboardText += currentEntry.rank + ".";
-                    leaderboardText += currentEntry.metadata;
-                    leaderboardText += " - ";
-                    leaderboardText += currentEntry.score;
-                    leaderboardText += "\n";
+                    string leaderboardText = $"{currentEntry.rank}# {currentEntry.metadata} — {currentEntry.score}";
+                    members[i].text = leaderboardText;
                 }
-                leaderboardTop10Text.text = leaderboardText;
             }
         });
     }
 
-    void UpdateCurrentRank()
+    private void UpdateCurrentRank()
     {
-        LootLockerSDKManager.GetMemberRank(leaderboardKey, memberID, (response) =>
+        LootLockerSDKManager.GetMemberRank("TotalLeaderboard", FindObjectOfType<PlayerData>().player_id, (response) =>
         {
             if (response.success)
             {
-                if (response.rank == 0 || response.score == 0) 
+                if (response.rank == 0 || response.score == 0)
+                {
                     currentRankText.text = "No current rank";
-                else 
-                    currentRankText.text = "Your rank is:" + response.rank + " - " + response.score;
+                }
+                else
+                {
+                    currentRankText.text = $"#{response.rank} — {FindObjectOfType<PlayerData>().playerName} — {response.score}";
+                }
             }
         });
     }

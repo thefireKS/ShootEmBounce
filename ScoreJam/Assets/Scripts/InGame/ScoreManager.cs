@@ -21,4 +21,9 @@ public class ScoreManager : MonoBehaviour
         var moneyToAdd = _currentScore / 100;
         _playerData.ChangeMoney(moneyToAdd);
     }
+
+    public int ReturnScore()
+    {
+        return _currentScore;
+    }
 }

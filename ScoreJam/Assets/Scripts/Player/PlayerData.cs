@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerData : MonoBehaviour
@@ -10,6 +9,9 @@ public class PlayerData : MonoBehaviour
     
     public string availableMaps;
     public string availableWeapons;
+
+    public string player_id;
+    public string playerName;
 
     private void Start()
     {
