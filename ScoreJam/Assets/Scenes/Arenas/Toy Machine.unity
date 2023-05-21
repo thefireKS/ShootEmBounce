@@ -1995,7 +1995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 797691441003743202, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
       propertyPath: timeToPlay
-      value: 1
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 797691441003743202, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
       propertyPath: leaderboardKey
