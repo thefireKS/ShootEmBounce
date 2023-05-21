@@ -1945,6 +1945,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 797691440465579210, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 797691441003743201, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1990,6 +1994,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 797691441003743202, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
+      propertyPath: timeToPlay
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 797691441003743202, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
       propertyPath: leaderboardKey
       value: ToyMachineLeaderboard
       objectReference: {fileID: 0}
@@ -2000,6 +2008,18 @@ PrefabInstance:
     - target: {fileID: 797691441003743228, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 797691441015417151, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
+      propertyPath: timeBetweenWaves
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 797691441072875215, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
+      propertyPath: timeBetweenWaves
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 797691441099986875, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
+      propertyPath: timeBetweenWaves
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}

@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     private bool _allowFire = true;
     
     [SerializeField] private ParticleSystem gunVFX;
+    private AudioSource _audioSource;
 
     [SerializeField] private float damage;
     [SerializeField] private float maxDistance;
@@ -16,6 +17,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _delay = 60 / bulletsPerMinute;
         
         _camera = Camera.main;
@@ -51,6 +53,7 @@ public class Gun : MonoBehaviour
     private void Shooting()
     {
         if(gunVFX)gunVFX.Play();
+        if(_audioSource) _audioSource.Play();
         
         var width = Screen.width / 2;
         var height = Screen.height / 2;
