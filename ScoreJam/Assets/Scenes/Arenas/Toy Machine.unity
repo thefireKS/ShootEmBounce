@@ -1995,7 +1995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 797691441003743202, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
       propertyPath: timeToPlay
-      value: 60
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 797691441003743202, guid: b96fc59aad6ed6f42b38d1286f706f27, type: 3}
       propertyPath: leaderboardKey
@@ -2129,9 +2129,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 5039439729034435968, guid: d6aa705464567e04493c0c1d08bef207, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6739152278442006346, guid: d6aa705464567e04493c0c1d08bef207, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 797691441056328628}
+    - target: {fileID: 8664986516437599872, guid: d6aa705464567e04493c0c1d08bef207, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8775366392131621399, guid: d6aa705464567e04493c0c1d08bef207, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6aa705464567e04493c0c1d08bef207, type: 3}
