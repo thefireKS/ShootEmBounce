@@ -25,7 +25,7 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateScore(int score)
     {
-        _scoreText.text = score.ToString();
+        _scoreText.text = $"Score: {score.ToString()}";
     }
 
     public void AddMoney()
