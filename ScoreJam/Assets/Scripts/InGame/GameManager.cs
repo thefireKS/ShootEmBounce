@@ -68,21 +68,25 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Main Menu");
     }
 
     private void OpenEndMenu()
     {
         _endGameText.text = $"Your score: {_scoreManager.ReturnScore()}";
+        Cursor.lockState = CursorLockMode.Confined;
         GameObject.Find("Timer").SetActive(false);
         GameObject.Find("Score").SetActive(false);
         Cursor.visible = true;
+        FindObjectOfType<AudioListener>().enabled = false;
         
         _endMenu.GetComponent<Canvas>().enabled = true;
     }
 
     private void EndGame()
     {
+        Time.timeScale = 0f;
         UploadScore();
         OpenEndMenu();
     }
