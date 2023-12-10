@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public void ReturnToMenu()
     {
         Time.timeScale = 1f;
+        _scoreManager.AddMoney();
         SceneManager.LoadScene("Main Menu");
     }
 
