@@ -13,7 +13,7 @@ public class PlayerData : MonoBehaviour
     public string player_id;
     public string playerName;
 
-    private void Start()
+    private void Awake()
     {
         DontDestroyOnLoad(this);
         

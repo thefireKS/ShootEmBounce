@@ -1,4 +1,3 @@
-using LootLocker.Requests;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,8 +12,6 @@ public class GameManager : MonoBehaviour
     private float _timer;
     private float _minutes, _seconds;
     private bool _isEnd = true;
-    
-    [SerializeField] private string leaderboardKey;
 
     private TextMeshProUGUI _timerText;
 
@@ -51,21 +48,6 @@ public class GameManager : MonoBehaviour
         _timerText.text = $"{_minutes:00}:{_seconds:00}";
     }
 
-    public void UploadScore()
-    {
-        LootLockerSDKManager.GetPlayerName(response =>
-        {
-            LootLockerSDKManager.SubmitScore(FindObjectOfType<PlayerData>().player_id, _scoreManager.ReturnScore(), "TotalLeaderboard", response.name, (lootLockerSubmitScoreResponse) => {});
-            LootLockerSDKManager.SubmitScore(FindObjectOfType<PlayerData>().player_id, _scoreManager.ReturnScore(), leaderboardKey, response.name, (response) =>
-            {
-                if (response.success)
-                {
-                    _scoreManager.AddMoney();
-                }
-            });
-        });
-    }
-
     public void ReturnToMenu()
     {
         Time.timeScale = 1f;
@@ -87,7 +69,6 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         Time.timeScale = 0f;
-        UploadScore();
         OpenEndMenu();
     }
 }
