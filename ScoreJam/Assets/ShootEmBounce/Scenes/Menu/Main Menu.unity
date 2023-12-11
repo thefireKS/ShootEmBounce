@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 824521784}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4013,6 +4013,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3405587564609478655, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 56291161452544
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405587564609478655, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:3fb61533d7dacab4c90bfce491f1a055
+      objectReference: {fileID: 0}
     - target: {fileID: 5860608217701727893, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_Name
       value: GoToMenu Button
@@ -5006,6 +5014,14 @@ PrefabInstance:
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405587564609478655, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 124334678016
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405587564609478655, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:3fb61533d7dacab4c90bfce491f1a055
       objectReference: {fileID: 0}
     - target: {fileID: 5860608217701727893, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_Name
@@ -7010,6 +7026,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3405587564609478655, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 3608903720960
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405587564609478655, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:3fb61533d7dacab4c90bfce491f1a055
+      objectReference: {fileID: 0}
     - target: {fileID: 5860608217701727893, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_Name
       value: Shop Button
@@ -8072,6 +8096,14 @@ PrefabInstance:
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405587564609478655, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 124334678016
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405587564609478655, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:3fb61533d7dacab4c90bfce491f1a055
       objectReference: {fileID: 0}
     - target: {fileID: 5860608217701727893, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_Name
