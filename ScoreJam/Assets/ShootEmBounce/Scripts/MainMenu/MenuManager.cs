@@ -39,6 +39,16 @@ public class MenuManager : MonoBehaviour
         }
         Fade();
     }
+    
+    public void SetActiveMenu(GameObject menu)
+    {
+        _currentMenu = menu.name;
+        foreach (var menuFromMenus in menus)
+        {
+            menu.SetActive(menuFromMenus.name == _currentMenu);
+        }
+        Fade();
+    }
 
     private void Fade()
     {
