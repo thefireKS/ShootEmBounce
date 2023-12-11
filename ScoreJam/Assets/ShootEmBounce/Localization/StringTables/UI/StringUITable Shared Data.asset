@@ -79,6 +79,22 @@ MonoBehaviour:
     m_Key: map_description_prototype
     m_Metadata:
       m_Items: []
+  - m_Id: 64725445423104
+    m_Key: weapon_description_nerfgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64843779321856
+    m_Key: weapon_description_sniperrifle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65147715366912
+    m_Key: weapon_description_cosmogun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66269616189440
+    m_Key: weapon_description_minigun
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

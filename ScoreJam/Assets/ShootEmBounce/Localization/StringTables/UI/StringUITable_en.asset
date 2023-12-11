@@ -82,6 +82,22 @@ MonoBehaviour:
     m_Localized: Prototype map desc
     m_Metadata:
       m_Items: []
+  - m_Id: 64725445423104
+    m_Localized: Nerf gun desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64843779321856
+    m_Localized: Sniper rifle desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65147715366912
+    m_Localized: Cosmogun desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66269616189440
+    m_Localized: Minigun desc
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
