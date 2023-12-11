@@ -26,6 +26,50 @@ MonoBehaviour:
     m_Localized: Tienda
     m_Metadata:
       m_Items: []
+  - m_Id: 56291161452544
+    m_Localized: Volver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56449945219072
+    m_Localized: Seleccione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58118787477504
+    m_Localized: Comprado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58210412048384
+    m_Localized: Comprar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58460891688960
+    m_Localized: Pistola Nerf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58566600732672
+    m_Localized: Rifle de francotirador
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59042402578432
+    m_Localized: Arma espacial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59124661268480
+    m_Localized: Minigun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59368992059392
+    m_Localized: "Ca\xF1\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59462801862656
+    m_Localized: "M\xE1quina de juguetes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59544720814080
+    m_Localized: Prototipo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

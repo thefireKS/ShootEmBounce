@@ -23,6 +23,62 @@ MonoBehaviour:
     m_Key: shop
     m_Metadata:
       m_Items: []
+  - m_Id: 56291161452544
+    m_Key: back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56449945219072
+    m_Key: select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58118787477504
+    m_Key: buy_status_true
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58210412048384
+    m_Key: buy_status_false
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58460891688960
+    m_Key: weapon_name_nerfgun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58566600732672
+    m_Key: weapon_name_sniperrifle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59042402578432
+    m_Key: weapon_name_cosmogun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59124661268480
+    m_Key: weapon_name_minigun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59368992059392
+    m_Key: map_name_canyon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59462801862656
+    m_Key: map_name_toymachine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59544720814080
+    m_Key: map_name_prototype
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59754389876736
+    m_Key: map_description_canyon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59867984211968
+    m_Key: map_description_toymachine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60006664679424
+    m_Key: map_description_prototype
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

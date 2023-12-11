@@ -26,6 +26,62 @@ MonoBehaviour:
     m_Localized: Shop
     m_Metadata:
       m_Items: []
+  - m_Id: 56291161452544
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56449945219072
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58118787477504
+    m_Localized: Bought
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58210412048384
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58460891688960
+    m_Localized: Nerf gun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58566600732672
+    m_Localized: Sniper rifle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59042402578432
+    m_Localized: Cosmogun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59124661268480
+    m_Localized: Minigun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59368992059392
+    m_Localized: Canyon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59462801862656
+    m_Localized: Toy machine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59544720814080
+    m_Localized: Prototype
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59754389876736
+    m_Localized: Canyon map desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59867984211968
+    m_Localized: Toy machine map desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60006664679424
+    m_Localized: Prototype map desc
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

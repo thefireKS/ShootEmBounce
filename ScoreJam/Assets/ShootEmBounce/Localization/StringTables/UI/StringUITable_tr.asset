@@ -26,6 +26,50 @@ MonoBehaviour:
     m_Localized: "Ma\u011Faza"
     m_Metadata:
       m_Items: []
+  - m_Id: 56291161452544
+    m_Localized: Geri
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56449945219072
+    m_Localized: "Se\xE7iniz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58118787477504
+    m_Localized: "Sat\u0131n ald\u0131m"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58210412048384
+    m_Localized: "Sat\u0131n Al"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58460891688960
+    m_Localized: "Nerf silah\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58566600732672
+    m_Localized: "Keskin ni\u015Fanc\u0131 t\xFCfe\u011Fi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59042402578432
+    m_Localized: "Uzay silah\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59124661268480
+    m_Localized: Minigun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59368992059392
+    m_Localized: Kanyon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59462801862656
+    m_Localized: Oyuncak makinesi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59544720814080
+    m_Localized: Prototip
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
