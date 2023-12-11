@@ -11,7 +11,6 @@ public class Gun : MonoBehaviour
     private AudioSource _audioSource;
 
     [SerializeField] private float damage;
-    [SerializeField] private float maxDistance;
     
     private Camera _camera;
 
@@ -39,15 +38,11 @@ public class Gun : MonoBehaviour
 
     private void CheckDelay()
     {
-        if (_allowFire == false)
-        {
-            _currentTime += Time.fixedDeltaTime;
-            if (_currentTime > _delay)
-            {
-                _allowFire = true;
-                _currentTime = 0f;
-            }
-        }
+        if (_allowFire) return;
+        _currentTime += Time.fixedDeltaTime;
+        if (!(_currentTime > _delay)) return;
+        _allowFire = true;
+        _currentTime = 0f;
     }
 
     private void Shooting()
@@ -61,13 +56,10 @@ public class Gun : MonoBehaviour
         
         Ray ray = _camera.ScreenPointToRay(screenPoint);
 
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxDistance))
+        if (!Physics.Raycast(ray, out var hit)) return;
+        if(hit.transform.CompareTag("Enemy"))
         {
-            if(hit.transform.CompareTag("Enemy"))
-            {
-                hit.transform.GetComponent<EnemyHP>().TakeDamage(damage);
-            }
+            hit.transform.GetComponent<EnemyHP>().TakeDamage(damage);
         }
     }
 }
