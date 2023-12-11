@@ -45,7 +45,7 @@ public class MenuManager : MonoBehaviour
         _currentMenu = menu.name;
         foreach (var menuFromMenus in menus)
         {
-            menu.SetActive(menuFromMenus.name == _currentMenu);
+            menuFromMenus.SetActive(menuFromMenus.name == _currentMenu);
         }
         Fade();
     }
