@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,15 +6,13 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> menus;
-    
-    [SerializeField] private GameObject fading;
-    private Animator _fadeAnimator;
 
     private PlayerData _playerData;
 
+    public static event Action menuChanged;
+
     private void Start()
     {
-        _fadeAnimator = fading.GetComponent<Animator>();
 
         _playerData = FindObjectOfType<PlayerData>();
         
@@ -28,32 +27,26 @@ public class MenuManager : MonoBehaviour
         _currentMenu = menuName;
         foreach (var menu in menus)
         {
-            if (menu.name == _currentMenu)
-            {
-                menu.SetActive(true);
-            }
-            else
-            {
-                menu.SetActive(false);
-            }
+            menu.SetActive(menu.name == _currentMenu);
         }
-        Fade();
+        menuChanged?.Invoke();
     }
     
-    public void SetActiveMenu(GameObject menu)
+    /// <summary>
+    /// Set active new menu from list
+    /// </summary>
+    /// <param name="newActiveMenu">Menu to activate</param>
+    public void SetActiveMenu(GameObject newActiveMenu)
     {
-        _currentMenu = menu.name;
+        _currentMenu = newActiveMenu.name;
         foreach (var menuFromMenus in menus)
         {
             menuFromMenus.SetActive(menuFromMenus.name == _currentMenu);
         }
-        Fade();
+        menuChanged?.Invoke();
     }
 
-    private void Fade()
-    {
-        _fadeAnimator.Play("LoadAnim");
-    }
+
 
     public void LoadScene()
     {
