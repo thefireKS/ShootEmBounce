@@ -11,12 +11,12 @@ namespace ShootEmBounce.Scripts.Fade
 
         private void OnEnable()
         {
-            MenuManager.menuChanged += OnMenuChanged;
+            MenuManager.MenuChanged += OnMenuChanged;
         }
 
         private void OnDisable()
         {
-            MenuManager.menuChanged -= OnMenuChanged;
+            MenuManager.MenuChanged -= OnMenuChanged;
         }
 
         private void Awake()
@@ -29,7 +29,6 @@ namespace ShootEmBounce.Scripts.Fade
         /// </summary>
         private void StartFade()
         {
-            Debug.Log("Fade");
             _fadeAnimator.Play("LoadAnim");
         }
 

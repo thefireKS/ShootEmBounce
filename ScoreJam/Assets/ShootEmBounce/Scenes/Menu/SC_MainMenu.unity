@@ -1424,16 +1424,19 @@ MonoBehaviour:
   contentDescriptionText: {fileID: 601290231}
   contents:
   - contentPreview: {fileID: 21300000, guid: c4d28a6ec96b0f14797da50eceb786c9, type: 3}
-    contentDescription: Toy Machine Map
-    contentName: Toy Machine
+    contentDescription: 'Toy Machine Map
+
+
+      Don`t care about it'
+    contentName: SC_ToyMachine
     price: 0
   - contentPreview: {fileID: 21300000, guid: 1bdc461836266854fbfd10633c1b6bbe, type: 3}
     contentDescription: Prototype map
-    contentName: Prototype
+    contentName: SC_Prototype
     price: 0
   - contentPreview: {fileID: 21300000, guid: 1bdc461836266854fbfd10633c1b6bbe, type: 3}
     contentDescription: Canyon
-    contentName: Canyon
+    contentName: SC_Prototype
     price: 10
   currentContent: 0
 --- !u!114 &507903247

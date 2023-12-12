@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
 
     private PlayerData _playerData;
 
-    public static event Action menuChanged;
+    public static event Action MenuChanged;
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class MenuManager : MonoBehaviour
         {
             menu.SetActive(menu.name == _currentMenu);
         }
-        menuChanged?.Invoke();
+        MenuChanged?.Invoke();
     }
     
     /// <summary>
@@ -43,7 +43,7 @@ public class MenuManager : MonoBehaviour
         {
             menuFromMenus.SetActive(menuFromMenus.name == _currentMenu);
         }
-        menuChanged?.Invoke();
+        MenuChanged?.Invoke();
     }
 
 

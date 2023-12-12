@@ -10,7 +10,7 @@ public class ContentMenu : MonoBehaviour
     public struct Content
     {
         public Sprite contentPreview;
-        public string contentDescription;
+        [Multiline] public string contentDescription;
         public string contentName;
         public int price;
     }
