@@ -68,7 +68,7 @@ public class PlayerData : MonoBehaviour
         _currentMoney += value;
         PlayerPrefs.SetInt("money", _currentMoney);
     }
-
+    
     public int ReturnCurrentMoney()
     {
         return _currentMoney;
