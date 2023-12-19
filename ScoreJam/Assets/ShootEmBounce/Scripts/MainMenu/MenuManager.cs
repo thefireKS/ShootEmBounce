@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ShootEmBounce.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,14 +8,14 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> menus;
 
-    private PlayerData _playerData;
+    private Data _data;
 
     public static event Action MenuChanged;
 
     private void Start()
     {
 
-        _playerData = FindObjectOfType<PlayerData>();
+        //_data = FindObjectOfType<Data>();
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -50,7 +51,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadScene()
     {
-        var sceneName = _playerData.chosenArena;
-        SceneManager.LoadScene(sceneName);
+        //var sceneName = _data.chosenMap;
+        //SceneManager.LoadScene(sceneName);
     }
 }

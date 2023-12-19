@@ -1,3 +1,4 @@
+using ShootEmBounce.Scripts.Player;
 using TMPro;
 using UnityEngine;
 
@@ -7,14 +8,14 @@ public class ScoreManager : MonoBehaviour
 
     private TextMeshProUGUI _scoreText;
 
-    private PlayerData _playerData;
+    private Data _data;
     
 
     private void Start()
     {
         _scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
         UpdateScore(_currentScore);
-        _playerData = FindObjectOfType<PlayerData>();
+        //_data = FindObjectOfType<Data>();
     }
 
     public void AddScore(int score)
@@ -31,7 +32,7 @@ public class ScoreManager : MonoBehaviour
     public void AddMoney()
     {
         var moneyToAdd = _currentScore / 100;
-        _playerData.ChangeMoney(moneyToAdd);
+        _data.ChangeMoney(moneyToAdd);
     }
 
     public int ReturnScore()

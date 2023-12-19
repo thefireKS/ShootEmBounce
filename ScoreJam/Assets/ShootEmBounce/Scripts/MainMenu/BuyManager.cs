@@ -1,10 +1,11 @@
+using ShootEmBounce.Scripts.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BuyManager : MonoBehaviour
 {
-    private PlayerData _playerData;
+    private Data _data;
     [SerializeField] private string buyType; // PlayerPref key
 
     [SerializeField] private ContentMenu contentMenu;
@@ -17,7 +18,7 @@ public class BuyManager : MonoBehaviour
 
     private void Start()
     {
-        _playerData = FindObjectOfType<PlayerData>();
+        //_data = FindObjectOfType<Data>();
         
         UpdateStatus();
         ChangeMoneyText();
@@ -46,18 +47,18 @@ public class BuyManager : MonoBehaviour
     {
         var currentContent = contentMenu.ReturnCurrent();
 
-        if (_playerData.ReturnCurrentMoney() >= currentContent.price)
+        /*if (_data.ReturnCurrentMoney() >= currentContent.price)
         {
-            _playerData.ChangeMoney(-currentContent.price);
+            _data.ChangeMoney(-currentContent.price);
             ChangeMoneyText();
-            _playerData.ChangeAvailableContent(buyType, currentContent.contentName);
+            _data.ChangeAvailableContent(buyType, currentContent.contentName);
             UpdateStatus();
             Debug.Log($"The player bought {currentContent.contentName}");
-        }
+        }*/
     }
 
     public void ChangeMoneyText()
     {
-        moneyText.text = _playerData.ReturnCurrentMoney().ToString();
+        //moneyText.text = _data.ReturnCurrentMoney().ToString();
     }
 }

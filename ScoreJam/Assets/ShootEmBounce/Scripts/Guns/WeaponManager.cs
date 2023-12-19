@@ -1,15 +1,16 @@
 using System.Collections.Generic;
+using ShootEmBounce.Scripts.Player;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> weapons;
 
-    private PlayerData _playerData;
+    private Data _data;
 
     private void Start()
     {
-        _playerData = FindObjectOfType<PlayerData>();
+        //_data = FindObjectOfType<Data>();
         
         InitializeWeapon();
     }
@@ -18,14 +19,14 @@ public class WeaponManager : MonoBehaviour
     {
         foreach (var weapon in weapons)
         {
-            if (weapon.name != _playerData.chosenWeapon)
+            /*if (weapon.name != _data.chosenWeapon)
             {
                 weapon.SetActive(false);
             }
             else
             {
                 weapon.SetActive(true);
-            }
+            }*/
         }
     }
 }

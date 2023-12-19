@@ -27,7 +27,7 @@ namespace ShootEmBounce.Scripts.Fade
         /// <summary>
         /// Start fade out animation
         /// </summary>
-        private void StartFade()
+        public void StartFade()
         {
             _fadeAnimator.Play("LoadAnim");
         }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ShootEmBounce.Scripts.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -59,14 +60,14 @@ public class ContentMenu : MonoBehaviour
 
     public void ChoseWeapon()
     {
-        PlayerData _playerData = FindObjectOfType<PlayerData>();
-        _playerData.ChangeWeapon(contents[currentContent].contentName);
+        //Data data = FindObjectOfType<Data>();
+        //data.ChangeWeapon(contents[currentContent].contentName);
     }
     
     public void ChoseMap()
     {
-        PlayerData _playerData = FindObjectOfType<PlayerData>();
-        _playerData.ChangeMap(contents[currentContent].contentName);
+        //Data data = FindObjectOfType<Data>();
+        //data.ChangeMap(contents[currentContent].contentName);
     }
 
     
