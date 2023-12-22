@@ -14,9 +14,9 @@ namespace ShootEmBounce.Scripts.Other
             DataManager playerDataManager = FindObjectOfType<DataManager>();
             playerDataManager.playerData = YandexGame.savesData.playerData;
             Debug.Log(YandexGame.savesData.playerData.currentMoney);
-            /*YandexGame.savesData.playerData.ChangeMoney(100);
+            YandexGame.savesData.playerData.ChangeMoney(100);
             Debug.Log(YandexGame.savesData.playerData.currentMoney);
-            YandexGame.SaveProgress();*/
+            YandexGame.SaveProgress();
         }
     }
 }

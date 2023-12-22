@@ -7,7 +7,7 @@ namespace ShootEmBounce.Scripts.Player
     [Serializable]
     public class Data
     {
-        public int currentMoney { get; private set; }
+        public int currentMoney;
     
         public int chosenMapID;
         public int chosenWeaponID;

@@ -39,9 +39,7 @@ namespace YG
             if (!Directory.Exists(directory))
                 Directory.CreateDirectory(directory);
 
-            bool fileExits = false;
-            if (File.Exists(path))
-                fileExits = true;
+            bool fileExits = File.Exists(path);
 
 #if YG_NEWTONSOFT_FOR_SAVES
             string json = JsonConvert.SerializeObject(savesData, Formatting.Indented);
