@@ -376,7 +376,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 146262574}
-  - component: {fileID: 146262575}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -404,19 +403,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1532, y: 860}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &146262575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146262573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42c095a34d030924381d65f37290b3e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsFolder: {fileID: 102900000, guid: a19e3a0e883335e47bda3090de47594e, type: 3}
 --- !u!1 &192470793
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +496,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 517940860}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ContentMenu, Assembly-CSharp
         m_MethodName: ChangeContentBy
         m_Mode: 3
@@ -522,7 +508,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 517940859}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyManager, Assembly-CSharp
         m_MethodName: UpdateStatus
         m_Mode: 1
@@ -1632,15 +1618,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 517940857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 056c255b37a14eb4bb1cd13fbac69e74, type: 3}
+  m_Script: {fileID: 11500000, guid: 85e73ff1962c6dd47a9c947c221cf152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyType: weapons
-  contentMenu: {fileID: 517940860}
-  statusText: {fileID: 1503882564}
-  buyButton: {fileID: 1503882562}
-  applyButton: {fileID: 521727949}
-  moneyText: {fileID: 1579756644}
+  itemNameText: {fileID: 1919130457}
+  itemDescriptionText: {fileID: 1142704509}
+  itemCostText: {fileID: 0}
 --- !u!114 &517940860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1650,30 +1633,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 517940857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f30426f6240a6a46b57fdc26a7a6e6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 42c095a34d030924381d65f37290b3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentPreviewImage: {fileID: 1494252830}
-  contentNameText: {fileID: 1919130457}
-  contentDescriptionText: {fileID: 1142704509}
-  contents:
-  - contentPreview: {fileID: 21300000, guid: 9aec1af469be8a84bbcbf1d3716f5d1f, type: 3}
-    contentDescription: Nerf Gun
-    contentName: Nerf Gun
-    price: 0
-  - contentPreview: {fileID: 21300000, guid: 397806282ade1f04db26ba162ddfbc04, type: 3}
-    contentDescription: Sniper Rifle
-    contentName: Sniper Rifle
-    price: 1
-  - contentPreview: {fileID: 21300000, guid: 08bf560a468098847919b41d423ad1be, type: 3}
-    contentDescription: Cosmo Gun
-    contentName: Cosmo Gun
-    price: 10
-  - contentPreview: {fileID: 21300000, guid: b275ac20aefb8db4a83f32209db6094d, type: 3}
-    contentDescription: Minigun
-    contentName: Minigun
-    price: 100
-  currentContent: 0
+  itemsFolder: {fileID: 102900000, guid: a19e3a0e883335e47bda3090de47594e, type: 3}
 --- !u!1001 &521727947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1777,7 +1740,7 @@ PrefabInstance:
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 517940860}
+      objectReference: {fileID: 0}
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1829,11 +1792,6 @@ PrefabInstance:
 --- !u!224 &521727948 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1402226275290300548, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
-  m_PrefabInstance: {fileID: 521727947}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &521727949 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5860608217701727893, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
   m_PrefabInstance: {fileID: 521727947}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &540851999
@@ -4882,7 +4840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c65e358543cc8a3459d03252091b757b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentMenu: {fileID: 517940860}
+  contentMenu: {fileID: 0}
 --- !u!1 &1494252828
 GameObject:
   m_ObjectHideFlags: 0
@@ -5201,33 +5159,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
---- !u!114 &1503882562 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
-  m_PrefabInstance: {fileID: 1503882561}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1503882563 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1402226275290300548, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
   m_PrefabInstance: {fileID: 1503882561}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1503882564 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8150190054904537916, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
-  m_PrefabInstance: {fileID: 1503882561}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1537861512
 GameObject:
   m_ObjectHideFlags: 0
@@ -6404,7 +6340,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 517940860}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ContentMenu, Assembly-CSharp
         m_MethodName: ChangeContentBy
         m_Mode: 3
@@ -6416,7 +6352,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 517940859}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyManager, Assembly-CSharp
         m_MethodName: UpdateStatus
         m_Mode: 1
@@ -6705,7 +6641,7 @@ GameObject:
   - component: {fileID: 1919130458}
   - component: {fileID: 1919130457}
   m_Layer: 5
-  m_Name: MapName Text
+  m_Name: WeaponName Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

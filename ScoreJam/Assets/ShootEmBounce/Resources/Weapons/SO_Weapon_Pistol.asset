@@ -14,23 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:3fb61533d7dacab4c90bfce491f1a055
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 58460891688960
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   itemDescription:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:3fb61533d7dacab4c90bfce491f1a055
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 64725445423104
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  itemCost: 0
+  previewImage: {fileID: 0}
+  itemCost: 120
+  testString: 
   references:
     version: 2
     RefIds: []

@@ -25,11 +25,11 @@ public class MarketLogic : MonoBehaviour
         Item currentItem = GetCurrentItem();
         if (currentItem != null)
         {
-            Debug.Log($"Showing {currentItem.itemName} - {currentItem.itemDescription} (Cost: {currentItem.itemCost})");
+            Debug.Log($"Showing {currentItem.itemName.GetLocalizedString()} - {currentItem.itemDescription.GetLocalizedString()} (Cost: {currentItem.itemCost})");
         }
     }
 
-    private Item GetCurrentItem()
+    public Item GetCurrentItem()
     {
         return (availableItems != null && availableItems.Length > 0) ? availableItems[currentItemIndex] : null;
     }
