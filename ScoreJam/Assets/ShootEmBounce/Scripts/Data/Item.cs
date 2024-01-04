@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.UI;
 
 namespace ShootEmBounce.Scripts.Data
 {
@@ -10,7 +9,7 @@ namespace ShootEmBounce.Scripts.Data
         public int id { get; private set; }
         public LocalizedString itemName;
         public LocalizedString itemDescription;
-        public Image previewImage;
+        public Sprite previewImage;
         public uint itemCost;
         
         private void OnEnable()

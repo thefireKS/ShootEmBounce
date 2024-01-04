@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4218a330b1a022478b74fc94a831a80, type: 3}
-  m_Name: SO_Weapon_Pistol
+  m_Name: SO_Weapon_SniperRifle
   m_EditorClassIdentifier: 
   itemName:
     m_TableReference:
       m_TableCollectionName: GUID:3fb61533d7dacab4c90bfce491f1a055
     m_TableEntryReference:
-      m_KeyId: 58460891688960
+      m_KeyId: 58566600732672
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -25,13 +25,13 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:3fb61533d7dacab4c90bfce491f1a055
     m_TableEntryReference:
-      m_KeyId: 64725445423104
+      m_KeyId: 64843779321856
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   previewImage: {fileID: 21300000, guid: 745c0853b91b07c46a4bc1030d9a8ccb, type: 3}
-  itemCost: 120
+  itemCost: 200
   references:
     version: 2
     RefIds: []
