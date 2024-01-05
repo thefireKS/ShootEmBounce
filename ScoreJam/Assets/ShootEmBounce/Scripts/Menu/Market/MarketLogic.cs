@@ -1,4 +1,5 @@
 using ShootEmBounce.Scripts.Data;
+using ShootEmBounce.Scripts.Player;
 using UnityEngine;
 
 public class MarketLogic : MonoBehaviour
@@ -58,8 +59,20 @@ public class MarketLogic : MonoBehaviour
         Item currentItem = GetCurrentItem();
         if (currentItem != null)
         {
-            Debug.Log($"Buying {currentItem.itemName} for {currentItem.itemCost} money.");
-            // Логика покупки текущего предмета
+            if (DataManager.Instance.playerData.availableWeaponsIDs.Contains(currentItem.id)) return;
+            if (DataManager.Instance.playerData.currentMoney >= currentItem.itemCost)
+            {
+                // Достаточно денег, проводим покупку
+                DataManager.Instance.playerData.ChangeMoney((int)-currentItem.itemCost); // вычитаем стоимость из денег
+                DataManager.Instance.playerData.AddWeaponID(currentItem.id); // добавляем ID оружия в обладаемое
+                Debug.Log($"Buying {currentItem.itemName.ToString()} for {currentItem.itemCost} money.");
+
+                // Дополнительные действия по покупке, если необходимо
+            }
+            else
+            {
+                Debug.Log("Not enough money to buy this item.");
+            }
         }
     }
 }

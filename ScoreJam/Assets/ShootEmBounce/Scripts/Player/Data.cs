@@ -29,5 +29,10 @@ namespace ShootEmBounce.Scripts.Player
         {
             chosenWeaponID = weapon.id;
         }
+
+        public void AddWeaponID(int weaponID)
+        {
+            availableWeaponsIDs.Add(weaponID);
+        }
     }
 }

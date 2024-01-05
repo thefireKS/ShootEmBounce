@@ -4,14 +4,14 @@ namespace ShootEmBounce.Scripts.Player
 {
     public class DataManager : MonoBehaviour
     {
-        public DataManager instance;
+        public static DataManager Instance;
         public Data playerData;
 
         private void Awake()
         {
-            if (instance == null)
+            if (Instance == null)
             {
-                instance = this;
+                Instance = this;
                 DontDestroyOnLoad(this);
             }
             else
