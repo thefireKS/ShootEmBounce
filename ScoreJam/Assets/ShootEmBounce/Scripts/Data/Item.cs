@@ -4,7 +4,7 @@ using UnityEngine.Localization;
 
 namespace ShootEmBounce.Scripts.Data
 {
-    public class Item : ScriptableObject
+    public abstract class Item : ScriptableObject
     {
         public int id { get; private set; }
         public LocalizedString itemName;

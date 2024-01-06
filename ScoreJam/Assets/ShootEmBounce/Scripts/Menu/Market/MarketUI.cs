@@ -45,7 +45,7 @@ public class MarketUI : MonoBehaviour
 
     public void BuyCurrentItem()
     {
-        marketLogic.BuyCurrentItem();
+        marketLogic.BuyCurrentItem(marketLogic.GetCurrentItem());
         // Дополнительные действия при покупке (например, обновление интерфейса)
     }
 }
