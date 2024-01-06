@@ -1512,7 +1512,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 517940858}
-  - component: {fileID: 517940860}
   - component: {fileID: 517940859}
   m_Layer: 5
   m_Name: Market Menu
@@ -1561,19 +1560,7 @@ MonoBehaviour:
   itemDescriptionText: {fileID: 1142704511}
   itemCostText: {fileID: 801389919}
   itemImage: {fileID: 1494252830}
---- !u!114 &517940860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517940857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42c095a34d030924381d65f37290b3e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsFolder: {fileID: 102900000, guid: a19e3a0e883335e47bda3090de47594e, type: 3}
+  marketLogic: {fileID: 1287653038}
 --- !u!1001 &521727947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4478,6 +4465,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1287653036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287653037}
+  - component: {fileID: 1287653038}
+  m_Layer: 0
+  m_Name: Weapon Market Logic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1287653037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287653036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1748442375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287653038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287653036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c095a34d030924381d65f37290b3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  purchaseButton: {fileID: 1917592739}
+  itemsFolder: {fileID: 102900000, guid: a19e3a0e883335e47bda3090de47594e, type: 3}
 --- !u!1 &1295892991
 GameObject:
   m_ObjectHideFlags: 0
@@ -5276,7 +5309,7 @@ PrefabInstance:
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 517940860}
+      objectReference: {fileID: 517940859}
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -5287,7 +5320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnButtonClick
+      value: BuyCurrentItem
       objectReference: {fileID: 0}
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -5295,7 +5328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MarketLogic, Assembly-CSharp
+      value: MarketUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2640455585861590508, guid: 449588327aa916d4db6474c5d77d8af3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -6204,7 +6237,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1287653037}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1751198592
@@ -6794,7 +6828,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:3fb61533d7dacab4c90bfce491f1a055
     m_TableEntryReference:
-      m_KeyId: 58118787477504
+      m_KeyId: 56449945219072
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -6803,12 +6837,12 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:3fb61533d7dacab4c90bfce491f1a055
     m_TableEntryReference:
-      m_KeyId: 56449945219072
+      m_KeyId: 58118787477504
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  marketLogic: {fileID: 517940860}
+  marketLogic: {fileID: 1287653038}
   references:
     version: 2
     RefIds: []

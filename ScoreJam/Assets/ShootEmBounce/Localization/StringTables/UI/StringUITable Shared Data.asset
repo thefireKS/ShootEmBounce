@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 58118787477504
-    m_Key: buy_status_true
+    m_Key: selected
     m_Metadata:
       m_Items: []
   - m_Id: 58210412048384

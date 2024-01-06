@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Localization;
 using TMPro;
+using UnityEngine.Localization.Components;
 
 public class PurchaseButton : MonoBehaviour
 {
@@ -10,18 +11,23 @@ public class PurchaseButton : MonoBehaviour
     public LocalizedString selectLocalizedString;
     public LocalizedString selectedLocalizedString;
 
+    private LocalizeStringEvent localizeStringEvent;
+
     private Button button;
     [SerializeField] private MarketLogic marketLogic;
 
     private void Start()
     {
         button = GetComponent<Button>();
+        localizeStringEvent = GetComponentInChildren<LocalizeStringEvent>();
         UpdateButton();
     }
 
     public void UpdateButton()
     {
         ItemStatus status = marketLogic.GetItemStatus();  // Теперь используем метод из MarketLogic
+
+        Debug.Log(status.ToString());
 
         LocalizedString buttonText = GetLocalizedButtonText(status);
 
@@ -58,7 +64,7 @@ public class PurchaseButton : MonoBehaviour
         // Проверяем, не является ли buttonText null перед вызовом метода GetLocalizedString
         if (buttonText != null)
         {
-            UpdateText(buttonText.GetLocalizedString());
+            UpdateText(buttonText);
         }
         else
         {
@@ -66,9 +72,9 @@ public class PurchaseButton : MonoBehaviour
         }
     }
 
-    private void UpdateText(string localizedString)
+    private void UpdateText(LocalizedString localizedString)
     {
-        button.GetComponentInChildren<TextMeshProUGUI>().text = localizedString;
+        localizeStringEvent.StringReference = localizedString;
     }
 
     public void OnButtonClick()

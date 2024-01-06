@@ -11,11 +11,11 @@ public class MarketUI : MonoBehaviour
     public TextMeshProUGUI itemCostText;
     public Image itemImage;
 
-    private MarketLogic marketLogic;
+    [SerializeField] private MarketLogic marketLogic;
 
     private void Start()
     {
-        marketLogic = GetComponent<MarketLogic>();
+        if(marketLogic == null) marketLogic = GetComponent<MarketLogic>();
         ShowCurrentItem();
     }
 
@@ -45,7 +45,7 @@ public class MarketUI : MonoBehaviour
 
     public void BuyCurrentItem()
     {
-        marketLogic.BuyCurrentItem(marketLogic.GetCurrentItem());
+        marketLogic.OnButtonClick();
         // Дополнительные действия при покупке (например, обновление интерфейса)
     }
 }

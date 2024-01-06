@@ -1,4 +1,3 @@
-// MarketLogic.cs
 using ShootEmBounce.Scripts.Data;
 using ShootEmBounce.Scripts.Player;
 using UnityEngine;
@@ -8,14 +7,14 @@ public class MarketLogic : MonoBehaviour
     private ItemLoader itemLoader = new ItemLoader();
     private Item[] availableItems;
     private int currentItemIndex = 0;
-    private PurchaseButton purchaseButton;
+    [SerializeField] private PurchaseButton purchaseButton;
 
     public Object itemsFolder;
 
-    private void Start()
+    private void Awake()
     {
         LoadItems();
-        purchaseButton = GetComponentInChildren<PurchaseButton>();
+        if(purchaseButton == null) purchaseButton = GetComponentInChildren<PurchaseButton>();
         UpdatePurchaseButton();
     }
 
@@ -94,6 +93,11 @@ public class MarketLogic : MonoBehaviour
     {
         Item currentItem = GetCurrentItem();
 
+        while(currentItem == null)
+        {
+            currentItem = GetCurrentItem();
+        }
+
         bool isPurchased = DataManager.Instance.playerData.CheckAvailableItem(currentItem.id);
 
         bool isSelected = isPurchased && (currentItem.id == DataManager.Instance.playerData.chosenWeaponID || currentItem.id == DataManager.Instance.playerData.chosenMapID);
@@ -124,13 +128,21 @@ public class MarketLogic : MonoBehaviour
                     BuyCurrentItem(currentItem);
                     break;
                 case ItemStatus.PurchasedNotSelected:
-                    // Добавьте логику для выбора предмета
+                    ChooseItem(currentItem);
                     break;
             }
 
             UpdatePurchaseButton();
         }
     }
+
+    private void ChooseItem(Item item)
+    {
+        DataManager.Instance.playerData.ChooseItem(item);
+
+        Debug.Log($"Choosing {item.itemName.ToString()}."); // Добавьте этот вывод, чтобы убедиться, что выбор работает корректно
+    }
+
 
     private void UpdatePurchaseButton()
     {
