@@ -13,7 +13,7 @@ public class ItemLoader
         }
         else
         {
-            Debug.LogError("Папка не указана!");
+            Debug.LogError("РџР°РїРєР° РЅРµ СѓРєР°Р·Р°РЅР°!");
             return null;
         }
     }

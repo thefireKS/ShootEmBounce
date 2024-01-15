@@ -1,9 +1,12 @@
 // PurchaseButton.cs
+
+using ShootEmBounce.Scripts.Menu.Market;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Localization;
 using TMPro;
 using UnityEngine.Localization.Components;
+using UnityEngine.Serialization;
 
 public class PurchaseButton : MonoBehaviour
 {
@@ -14,7 +17,7 @@ public class PurchaseButton : MonoBehaviour
     private LocalizeStringEvent localizeStringEvent;
 
     private Button button;
-    [SerializeField] private MarketLogic marketLogic;
+    [FormerlySerializedAs("marketLogic")] [SerializeField] private Logic logic;
 
     private void Start()
     {
@@ -25,7 +28,7 @@ public class PurchaseButton : MonoBehaviour
 
     public void UpdateButton()
     {
-        ItemStatus status = marketLogic.GetItemStatus();  // Теперь используем метод из MarketLogic
+        ItemStatus status = logic.GetItemStatus();  // РўРµРїРµСЂСЊ РёСЃРїРѕР»СЊР·СѓРµРј РјРµС‚РѕРґ РёР· MarketLogic
 
         Debug.Log(status.ToString());
 
@@ -61,7 +64,7 @@ public class PurchaseButton : MonoBehaviour
             Debug.LogError("Button is null. Make sure button is properly initialized.");
         }
 
-        // Проверяем, не является ли buttonText null перед вызовом метода GetLocalizedString
+        // РџСЂРѕРІРµСЂСЏРµРј, РЅРµ СЏРІР»СЏРµС‚СЃСЏ Р»Рё buttonText null РїРµСЂРµРґ РІС‹Р·РѕРІРѕРј РјРµС‚РѕРґР° GetLocalizedString
         if (buttonText != null)
         {
             UpdateText(buttonText);
@@ -79,7 +82,7 @@ public class PurchaseButton : MonoBehaviour
 
     public void OnButtonClick()
     {
-        marketLogic.OnButtonClick();  // Вызываем метод из MarketLogic при нажатии кнопки
+        logic.OnButtonClick();  // Р’С‹Р·С‹РІР°РµРј РјРµС‚РѕРґ РёР· MarketLogic РїСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё
     }
 }
 

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using ShootEmBounce.Scripts.Player;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -45,13 +44,5 @@ public class MenuManager : MonoBehaviour
             menuFromMenus.SetActive(menuFromMenus.name == _currentMenu);
         }
         MenuChanged?.Invoke();
-    }
-
-
-
-    public void LoadScene()
-    {
-        //var sceneName = _data.chosenMap;
-        //SceneManager.LoadScene(sceneName);
     }
 }
