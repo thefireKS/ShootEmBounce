@@ -1,10 +1,10 @@
 {
-    "idSave": 70,
+    "idSave": 93,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
     "playerData": {
-        "currentMoney": 6700,
+        "currentMoney": 9000,
         "chosenMapID": 0,
         "chosenWeaponID": 0,
         "availableMapsIDs": [],

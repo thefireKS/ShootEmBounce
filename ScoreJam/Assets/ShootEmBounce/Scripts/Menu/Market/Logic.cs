@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using ShootEmBounce.Scripts.Data;
 using ShootEmBounce.Scripts.Other;
 using ShootEmBounce.Scripts.Player;
@@ -14,16 +15,16 @@ namespace ShootEmBounce.Scripts.Menu.Market
 
         public Object itemsFolder;
 
-        private void Awake()
+        private async void Awake()
         {
-            LoadItems();
+            await LoadItems();
             if(purchaseButton == null) purchaseButton = GetComponentInChildren<PurchaseButton>();
-            UpdatePurchaseButton();
         }
 
-        private void LoadItems()
+        private async Task LoadItems()
         {
-            _availableItems = _itemLoader.LoadItems(itemsFolder);
+            _availableItems = await _itemLoader.LoadItems(itemsFolder);
+            Debug.Log($"{gameObject.name}: {_availableItems.Length}");
             ShowCurrentItem();
         }
 
@@ -38,7 +39,7 @@ namespace ShootEmBounce.Scripts.Menu.Market
 
         public Item GetCurrentItem()
         {
-            return (_availableItems != null && _availableItems.Length > 0) ? _availableItems[_currentItemIndex] : null;
+            return _availableItems is { Length: > 0 } ? _availableItems[_currentItemIndex] : null;
         }
 
         private void ChangeItemIndex(int delta)
@@ -81,8 +82,8 @@ namespace ShootEmBounce.Scripts.Menu.Market
                         DataManager.Instance.playerData.AddMapID(currentItem.id);
                     }
 
-                    Debug.Log($"Buying {currentItem.itemName.ToString()} for {currentItem.itemCost} money.");
-
+                    Debug.Log($"Buying {currentItem.itemName.GetLocalizedString()} for {currentItem.itemCost} money.");
+                    
                     // �������������� �������� �� �������, ���� ����������
                 }
                 else
@@ -95,11 +96,6 @@ namespace ShootEmBounce.Scripts.Menu.Market
         public ItemStatus GetItemStatus()
         {
             Item currentItem = GetCurrentItem();
-
-            while(currentItem == null)
-            {
-                currentItem = GetCurrentItem();
-            }
 
             bool isPurchased = DataManager.Instance.playerData.CheckAvailableItem(currentItem.id);
 

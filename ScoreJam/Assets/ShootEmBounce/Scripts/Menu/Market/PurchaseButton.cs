@@ -14,23 +14,21 @@ public class PurchaseButton : MonoBehaviour
     public LocalizedString selectLocalizedString;
     public LocalizedString selectedLocalizedString;
 
-    private LocalizeStringEvent localizeStringEvent;
+    private LocalizeStringEvent _localizeStringEvent;
 
-    private Button button;
-    [FormerlySerializedAs("marketLogic")] [SerializeField] private Logic logic;
+    private Button _button;
+    [SerializeField] private Logic logic;
 
-    private void Start()
+    private void Awake()
     {
-        button = GetComponent<Button>();
-        localizeStringEvent = GetComponentInChildren<LocalizeStringEvent>();
+        _button = GetComponent<Button>();
+        _localizeStringEvent = GetComponentInChildren<LocalizeStringEvent>();
         UpdateButton();
     }
 
     public void UpdateButton()
     {
         ItemStatus status = logic.GetItemStatus();  // Теперь используем метод из MarketLogic
-
-        Debug.Log(status.ToString());
 
         LocalizedString buttonText = GetLocalizedButtonText(status);
 
@@ -55,13 +53,14 @@ public class PurchaseButton : MonoBehaviour
 
     private void SetButtonStyle(LocalizedString buttonText, bool interactable)
     {
-        if (button != null)
+        if (_button != null)
         {
-            button.interactable = interactable;
+            _button.interactable = interactable;
         }
         else
         {
-            Debug.LogError("Button is null. Make sure button is properly initialized.");
+            Debug.LogError($"{gameObject.name}: Button is null. Make sure button is properly initialized.");
+            return;
         }
 
         // Проверяем, не является ли buttonText null перед вызовом метода GetLocalizedString
@@ -77,7 +76,7 @@ public class PurchaseButton : MonoBehaviour
 
     private void UpdateText(LocalizedString localizedString)
     {
-        localizeStringEvent.StringReference = localizedString;
+        _localizeStringEvent.StringReference = localizedString;
     }
 
     public void OnButtonClick()

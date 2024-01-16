@@ -41,23 +41,23 @@ namespace ShootEmBounce.Scripts.Player
 
         public bool CheckAvailableItem(int itemId)
         {
-            // Проверяем, является ли предмет доступным среди доступного оружия или карт
+            // РџСЂРѕРІРµСЂСЏРµРј, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РїСЂРµРґРјРµС‚ РґРѕСЃС‚СѓРїРЅС‹Рј СЃСЂРµРґРё РґРѕСЃС‚СѓРїРЅРѕРіРѕ РѕСЂСѓР¶РёСЏ РёР»Рё РєР°СЂС‚
             return CheckAvailableWeapon(itemId) || CheckAvailableMap(itemId);
         }
 
         public bool IsItemChosen(int itemId)
         {
-            // Проверяем, является ли предмет выбранным среди выбранного оружия или карты
+            // РџСЂРѕРІРµСЂСЏРµРј, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РїСЂРµРґРјРµС‚ РІС‹Р±СЂР°РЅРЅС‹Рј СЃСЂРµРґРё РІС‹Р±СЂР°РЅРЅРѕРіРѕ РѕСЂСѓР¶РёСЏ РёР»Рё РєР°СЂС‚С‹
             return chosenWeaponID == itemId || chosenMapID == itemId;
         }
 
-        // Добавляем ID оружия
+        // Р”РѕР±Р°РІР»СЏРµРј ID РѕСЂСѓР¶РёСЏ
         public void AddWeaponID(int weaponID)
         {
             availableWeaponsIDs.Add(weaponID);
         }
 
-        // Добавляем ID карты
+        // Р”РѕР±Р°РІР»СЏРµРј ID РєР°СЂС‚С‹
         public void AddMapID(int mapID)
         {
             availableMapsIDs.Add(mapID);
@@ -65,18 +65,18 @@ namespace ShootEmBounce.Scripts.Player
 
         public void ChooseItem(Item item)
         {
-            // Проверяем, является ли выбранный предмет оружием
+            // РџСЂРѕРІРµСЂСЏРµРј, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РІС‹Р±СЂР°РЅРЅС‹Р№ РїСЂРµРґРјРµС‚ РѕСЂСѓР¶РёРµРј
             if (item is Weapon weapon)
             {
                 chosenWeaponID = weapon.id;
             }
-            // Проверяем, является ли выбранный предмет картой
+            // РџСЂРѕРІРµСЂСЏРµРј, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РІС‹Р±СЂР°РЅРЅС‹Р№ РїСЂРµРґРјРµС‚ РєР°СЂС‚РѕР№
             else if (item is Map map)
             {
                 chosenMapID = map.id;
             }
 
-            // Дополнительные действия при выборе предмета, если необходимо
+            // Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РґРµР№СЃС‚РІРёСЏ РїСЂРё РІС‹Р±РѕСЂРµ РїСЂРµРґРјРµС‚Р°, РµСЃР»Рё РЅРµРѕР±С…РѕРґРёРјРѕ
         }
     }
 }
