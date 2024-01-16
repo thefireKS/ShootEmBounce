@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -6,7 +7,7 @@ namespace ShootEmBounce.Scripts.Data
 {
     public abstract class Item : ScriptableObject
     {
-        public int id { get; private set; }
+        public int id;
         public LocalizedString itemName;
         public LocalizedString itemDescription;
         public Sprite previewImage;
@@ -18,6 +19,9 @@ namespace ShootEmBounce.Scripts.Data
             if (id == 0)
             {
                 id = GenerateUniqueID();
+                EditorUtility.SetDirty(this);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
             }
         }
 

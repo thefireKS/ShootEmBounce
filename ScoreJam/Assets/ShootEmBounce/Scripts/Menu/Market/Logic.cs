@@ -3,6 +3,7 @@ using ShootEmBounce.Scripts.Data;
 using ShootEmBounce.Scripts.Other;
 using ShootEmBounce.Scripts.Player;
 using UnityEngine;
+using YG;
 
 namespace ShootEmBounce.Scripts.Menu.Market
 {
@@ -69,10 +70,8 @@ namespace ShootEmBounce.Scripts.Menu.Market
                 if (DataManager.Instance.playerData.CheckAvailableItem(currentItem.id)) return;
                 if (DataManager.Instance.playerData.currentMoney >= currentItem.itemCost)
                 {
-                    // ���������� �����, �������� �������
-                    DataManager.Instance.playerData.ChangeMoney((int)-currentItem.itemCost); // �������� ��������� �� �����
-
-                    // � ����������� �� ���� �������� (Weapon ��� Map) ��������� ��������������� ID � ����������
+                    DataManager.Instance.playerData.ChangeMoney((int)-currentItem.itemCost);
+                    
                     if (currentItem is Weapon)
                     {
                         DataManager.Instance.playerData.AddWeaponID(currentItem.id);
@@ -83,8 +82,8 @@ namespace ShootEmBounce.Scripts.Menu.Market
                     }
 
                     Debug.Log($"Buying {currentItem.itemName.GetLocalizedString()} for {currentItem.itemCost} money.");
-                    
-                    // �������������� �������� �� �������, ���� ����������
+
+                    YandexGame.SaveProgress();
                 }
                 else
                 {
@@ -138,8 +137,10 @@ namespace ShootEmBounce.Scripts.Menu.Market
         private void ChooseItem(Item item)
         {
             DataManager.Instance.playerData.ChooseItem(item);
-
-            Debug.Log($"Choosing {item.itemName.ToString()}."); // �������� ���� �����, ����� ���������, ��� ����� �������� ���������
+        
+            Debug.Log($"Choosing {item.itemName.GetLocalizedString()}."); // ???????? ???? ?????, ????? ?????????, ??? ????? ???????? ?????????
+            
+            YandexGame.SaveProgress();
         }
 
 
