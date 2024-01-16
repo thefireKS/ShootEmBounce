@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3e9eb5e1ac9143be97dd84bcb0c9e, type: 3}
   m_Name: SO_Map_ToyMachine
   m_EditorClassIdentifier: 
-  id: 904694358
+  id: 2147483647
   itemName:
     m_TableReference:
       m_TableCollectionName: GUID:3fb61533d7dacab4c90bfce491f1a055
