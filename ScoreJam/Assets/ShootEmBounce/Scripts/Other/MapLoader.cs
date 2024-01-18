@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +9,15 @@ namespace ShootEmBounce.Scripts.Other
 
         private void Awake()
         {
-            if (Instance == null) Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         public void LoadScene(string sceneName)

@@ -14,7 +14,7 @@ namespace ShootEmBounce.Scripts.Menu.Market
         private int _currentItemIndex = 0;
         [SerializeField] private PurchaseButton purchaseButton;
 
-        public Object itemsFolder;
+        [Folder] public Object itemsFolder;
 
         private async void Awake()
         {

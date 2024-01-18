@@ -1,23 +1,33 @@
 using System.Collections.Generic;
+using ShootEmBounce.Scripts.Data;
 using ShootEmBounce.Scripts.Player;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> weapons;
+    [Folder, SerializeField] private Object weaponSOFolder;
 
-    private Data _data;
+    private DataManager _dataManager;
 
-    private void Start()
+    private void Awake()
     {
-        //_data = FindObjectOfType<Data>();
+        _dataManager = FindObjectOfType<DataManager>();
+
+        Weapon[] weapons = Resources.LoadAll<Weapon>(weaponSOFolder.name);
+        foreach (var weapon in weapons)
+        {
+            if (weapon.id == _dataManager.playerData.chosenWeaponID)
+            {
+                Instantiate(weapon.weaponPrefab, GameObject.FindWithTag("MainCamera").transform);
+            }
+        }
         
         InitializeWeapon();
     }
 
     private void InitializeWeapon()
     {
-        foreach (var weapon in weapons)
+        /*foreach (var weapon in weapons)
         {
             /*if (weapon.name != _data.chosenWeapon)
             {
@@ -26,7 +36,7 @@ public class WeaponManager : MonoBehaviour
             else
             {
                 weapon.SetActive(true);
-            }*/
-        }
+            }#1#
+        }*/
     }
 }
