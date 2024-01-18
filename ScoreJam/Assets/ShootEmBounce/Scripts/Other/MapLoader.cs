@@ -25,7 +25,7 @@ namespace ShootEmBounce.Scripts.Other
             SceneManager.LoadScene(sceneName);
         }
 
-        public void LoadMainMenu()
+        public static void LoadMainMenu()
         {
             SceneManager.LoadScene(0);
         }

@@ -1,4 +1,5 @@
 using ShootEmBounce.Scripts.Data;
+using ShootEmBounce.Scripts.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Components;
@@ -11,6 +12,7 @@ namespace ShootEmBounce.Scripts.Menu.Market
         public LocalizeStringEvent itemNameText;
         public LocalizeStringEvent itemDescriptionText;
         public TextMeshProUGUI itemCostText;
+        public TextMeshProUGUI moneyText;
         public Image itemImage;
 
         [SerializeField] private Logic logic;
@@ -19,6 +21,13 @@ namespace ShootEmBounce.Scripts.Menu.Market
         {
             if(logic == null) logic = GetComponent<Logic>();
             ShowCurrentItem();
+
+            UpdateMoneyText();
+        }
+
+        private void UpdateMoneyText()
+        {
+            moneyText.text = DataManager.Instance.playerData.currentMoney.ToString();
         }
 
         private void ShowCurrentItem()
@@ -48,6 +57,7 @@ namespace ShootEmBounce.Scripts.Menu.Market
         public void BuyCurrentItem()
         {
             logic.OnButtonClick();
+            UpdateMoneyText();
             // Дополнительные действия при покупке (например, обновление интерфейса)
         }
 

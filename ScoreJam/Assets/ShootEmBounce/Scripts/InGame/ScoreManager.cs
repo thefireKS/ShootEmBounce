@@ -15,7 +15,7 @@ public class ScoreManager : MonoBehaviour
     {
         _scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
         UpdateScore(_currentScore);
-        //_data = FindObjectOfType<Data>();
+        _data = FindObjectOfType<DataManager>().playerData;
     }
 
     public void AddScore(int score)

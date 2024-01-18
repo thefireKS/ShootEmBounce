@@ -1312,6 +1312,7 @@ MonoBehaviour:
   itemNameText: {fileID: 1503778695}
   itemDescriptionText: {fileID: 1150647089}
   itemCostText: {fileID: 605778319}
+  moneyText: {fileID: 1153480986}
   itemImage: {fileID: 1654883445}
   logic: {fileID: 1023933174}
 --- !u!1 &508502566
@@ -1480,6 +1481,7 @@ MonoBehaviour:
   itemNameText: {fileID: 1919130459}
   itemDescriptionText: {fileID: 1142704511}
   itemCostText: {fileID: 801389919}
+  moneyText: {fileID: 1579756644}
   itemImage: {fileID: 1494252830}
   logic: {fileID: 1287653038}
 --- !u!1001 &521727947
